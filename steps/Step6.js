@@ -101,9 +101,16 @@ import styles from '../styles/App.module.scss';
 
 const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/coco-cloud-new"
 
+
 class Step6 extends Component {
     constructor() {
         super()
+        this.state = {
+            optionAurl: "",
+            optionBurl: "",
+            optionCurl: "",
+            optionDurl: "",
+        }
         this.handleChange = this.handleChange.bind(this)
     }
 
@@ -131,6 +138,10 @@ class Step6 extends Component {
         const name = event.target.name
         const imgURL = await this.imageUpload(file)
         this.props.handleImageUpload(name, imgURL.url)
+
+        this.setState({
+            [name]: file
+        })
     }
 
     render() {
@@ -155,8 +166,8 @@ class Step6 extends Component {
                             type="file"
                             onChange={this.handleChange}
                         />
-                        <img src='/upload.png' className={styles.uploadImg} />
-
+                        {/* <img src='/upload.png' className={styles.uploadImg} /> */}
+                        {<img className={styles.uploadImg} src={this.state.optionAurl ? URL.createObjectURL(this.state.optionAurl) : '/upload.png'} />}
                     </label>
 
                     <input
@@ -178,13 +189,14 @@ class Step6 extends Component {
                 </div>
                 <div className={styles.option}>
                     <label className={styles.inputOptionImgWrapper}>
-                    <input
+                        <input
                             className={styles.inputOptionImg}
                             name="optionBurl"
                             type="file"
                             onChange={this.handleChange}
                         />
-                        <img src='/upload.png' className={styles.uploadImg }/>
+                        {<img className={styles.uploadImg} src={this.state.optionBurl ? URL.createObjectURL(this.state.optionBurl) : '/upload.png'} />}
+
 
                     </label>
                     <input
@@ -206,13 +218,14 @@ class Step6 extends Component {
                 </div>
                 <div className={styles.option}>
                     <label className={styles.inputOptionImgWrapper}>
-                    <input
+                        <input
                             className={styles.inputOptionImg}
                             name="optionCurl"
                             type="file"
                             onChange={this.handleChange}
                         />
-                        <img src='/upload.png' className={styles.uploadImg } />
+                        {<img className={styles.uploadImg} src={this.state.optionCurl ? URL.createObjectURL(this.state.optionCurl) : '/upload.png'} />}
+
 
                     </label>
                     <input
@@ -234,13 +247,13 @@ class Step6 extends Component {
                 </div>
                 <div className={styles.option}>
                     <label className={styles.inputOptionImgWrapper}>
-                    <input
+                        <input
                             className={styles.inputOptionImg}
                             name="optionDurl"
                             type="file"
                             onChange={this.handleChange}
                         />
-                        <img src='/upload.png' className={styles.uploadImg} />
+                        {<img className={styles.uploadImg} src={this.state.optionDurl ? URL.createObjectURL(this.state.optionDurl) : '/upload.png'} />}
 
                     </label>
                     <input
