@@ -45,7 +45,6 @@ class App extends Component {
       deliveryCost: 0,        // 7b 10
       instructions: "",       // 8 11
       email: "",              // 9 12
-      image: null,
       imageURL: ""
     }
 
@@ -268,15 +267,6 @@ class App extends Component {
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}
             />
-
-
-
-
-
-
-
-
-
 
             {this.previousButton()}
             {this.nextButton()}
