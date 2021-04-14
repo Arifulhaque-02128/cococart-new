@@ -9,16 +9,16 @@ export default async (req, res) => {
     switch (method) {
         case "GET":
             try {
-                const clientData = await dataSchema.find({})
-                res.status(200).json(clientData)
+                const shopData = await dataSchema.find({})
+                res.status(200).json(shopData)
             } catch (error) {
                 res.status(400).json({success: false})
             }
             break;
         case "POST":
             try {
-                const clientData = await dataSchema.create(req.body)
-                res.status(201).json(clientData)
+                const shopData = await dataSchema.create(req.body)
+                res.status(201).json(shopData)
             } catch (error) {
                 res.status(400).json({success: false})
             }
