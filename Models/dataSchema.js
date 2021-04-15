@@ -1,25 +1,42 @@
 const mongoose = require('mongoose');
 
-const productSchema = new mongoose.Schema({
-    domainName: {
+const shopSchema = new mongoose.Schema({
+    shopName: {
         type: String
     },
-    category: {
+    productName: {
         type: String,
     },
-    pageName: {
-        type: String,
-        trim: true,
+    price: {
+        type: Number,
     },
-    pageInfo: {
+    imageURL: {
+        type: String
+    },
+    hasOptions: {
+        type: Boolean
+    },
+    options: {
         type: Array
     },
-    contactInfo: {
-        type: Array
+    hasSpecificDate: {
+        type: Boolean
     },
-    products: {
-        type: Array
-    }
+    orderType: {
+        type: String
+    },
+    hasDeliveryFee: {
+        type: Boolean
+    },
+    deliveryCost: {
+        type: Number
+    },
+    instructions: {
+        type: String
+    },
+    email: {
+        type: String
+    },
 });
 
-module.exports = mongoose.models.clientInfo || mongoose.model('clientInfo', productSchema)
+module.exports = mongoose.models.shopInfo || mongoose.model('shopInfo', shopSchema)

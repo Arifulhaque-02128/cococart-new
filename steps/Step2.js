@@ -20,7 +20,7 @@ class Step2 extends Component {
                     name="productName"
                     type="text"
                     placeholder="product name"
-                    value={this.props.email} 
+                    value={this.props.productName} 
                     onChange={this.props.handleChange}
                 />
             </form>
