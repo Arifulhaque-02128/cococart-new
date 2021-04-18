@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const shopSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
     shopID: {
         type: String
     },
@@ -42,4 +42,4 @@ const shopSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.models.shopInfo || mongoose.model('shopInfo', shopSchema)
+module.exports = mongoose.models.orderInfo || mongoose.model('orderInfo', orderSchema)

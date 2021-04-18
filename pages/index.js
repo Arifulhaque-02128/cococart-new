@@ -19,6 +19,7 @@ class App extends Component {
     this.state = {
       totalSteps: 12,
       currentStep: 1,
+      shopID: "",
       shopName: "",       // 1
       productName: "",    // 2
       price: "",          // 4
@@ -99,6 +100,7 @@ class App extends Component {
       value = false
     }
 
+
     if (type === "file") {
       this.setState({
         image: event.target.files[0]
@@ -140,7 +142,9 @@ class App extends Component {
       price: this.state.optionDPrice,
       url: this.state.optionDurl
     }
+    // const shopID = this.state.shopName.replace(/ /g, '').toLowerCase()
     const data = {
+      shopID: this.state.shopName.replace(/ /g,'').toLowerCase(),
       shopName: this.state.shopName,
       productName: this.state.productName,
       price: this.state.price,
@@ -168,7 +172,7 @@ class App extends Component {
       .catch((error) => {
         console.error('Error:', error);
       });
-    // console.log(this.state)
+    console.log(this.state)
   }
 
   previousButton() {

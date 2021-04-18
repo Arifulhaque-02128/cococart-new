@@ -13,6 +13,6 @@ export const dbConnect = async () => {
     console.log(connection.isConnected);
 }
 
-// export const jsonify = (obj) => {
-//     return JSON.parse(JSON.stringify(obj));
-// }
+export const jsonify = (obj) => {
+    return JSON.parse(JSON.stringify(obj));
+}
