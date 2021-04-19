@@ -13,43 +13,46 @@ import Step6 from '../steps/Step6'
 import Step9 from '../steps/Step9'
 import Step10 from '../steps/Step10'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       totalSteps: 12,
       currentStep: 1,
+      shopID: "",
       shopName: "",       // 1
       productName: "",    // 2
       price: "",          // 4
+      imageURL: "",
       hasOptions: false,  // 5
-      optionAName: "",    // 5a 6
-      optionBName: "",    // 5a 6
-      optionCName: "",    // 5a 6
-      optionDName: "",    // 5a 6
-      optionAPrice: "",   // 5a 6
-      optionBPrice: "",   // 5a 6
-      optionCPrice: "",   // 5a 6
-      optionDPrice: "",   // 5a 6
+
+      optionAName: "",    // 6
+      optionBName: "",    // 6
+      optionCName: "",    // 6
+      optionDName: "",    // 6
+      optionAPrice: "",   // 6
+      optionBPrice: "",   // 6
+      optionCPrice: "",   // 6
+      optionDPrice: "",   // 6
       optionAurl: "",
       optionBurl: "",
       optionCurl: "",
       optionDurl: "",
 
-      hasSpecificDate: false, // 6 7
-      orderType: "",      // 7 8 (delivery/pickup/both)
-      orderTypeDel: false,
-      orderTypePick: false,
-      orderTypePickAndDel: false,
-      hasDeliveryFee: false,  // 7a 9
-      deliveryCost: 0,        // 7b 10
-      instructions: "",       // 8 11
-      email: "",              // 9 12
-      imageURL: ""
+      hasSpecificDate: false, //  7
+      orderType: "",      // 8 (delivery/pickup/both)
+      hasDeliveryFee: false,  //  9
+      deliveryCost: 0,        // 10
+      instructions: "",       // 11
+      email: "",              // 12
+      shopCreated: false
     }
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.goToShop = this.goToShop.bind(this)
     this.handleImageUpload = this.handleImageUpload.bind(this)
     this._next = this._next.bind(this)
     this._prev = this._prev.bind(this)
@@ -57,6 +60,7 @@ class App extends Component {
 
   _next() {
     let currentStep = this.state.currentStep
+
     if (currentStep === 5 && !this.state.hasOptions) {
       currentStep += 2
     } else if (currentStep === 8 && this.state.orderType === "pickup") {
@@ -75,7 +79,6 @@ class App extends Component {
 
   _prev() {
     let currentStep = this.state.currentStep
-    // currentStep = currentStep <= 1 ? 1 : currentStep - 1
 
     if (currentStep === 7 && !this.state.hasOptions) {
       currentStep -= 2
@@ -87,8 +90,6 @@ class App extends Component {
       currentStep--
     }
 
-
-
     this.setState({
       currentStep: currentStep
     })
@@ -96,7 +97,6 @@ class App extends Component {
 
   handleChange(event) {
     let { name, value, type } = event.target
-    // type === "radio" 
     if (value === "true") {
       value = true
     }
@@ -104,10 +104,8 @@ class App extends Component {
       value = false
     }
 
-    
 
     if (type === "file") {
-      console.log(event.target.files[0])
       this.setState({
         image: event.target.files[0]
       })
@@ -116,8 +114,6 @@ class App extends Component {
         [name]: value
       })
     }
-    // console.log(name)
-    console.log(this.state)
   }
 
   handleImageUpload(name, imgURL) {
@@ -128,14 +124,66 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const { userName, productName, price, options, email } = this.state
-    alert(`Entered details: \n
-    User Name: ${userName}\n
-    Email: ${email}\n
-    Product Name: ${productName}\n
-    Price: ${price}\n`)
-
+    const { shopName, productName, price, options, email } = this.state
+    alert(`Your Product ${productName} has been updated`)
+    const optionA = {
+      name: this.state.optionAName,
+      price: this.state.optionAPrice,
+      url: this.state.optionAurl
+    }
+    const optionB = {
+      name: this.state.optionBName,
+      price: this.state.optionBPrice,
+      url: this.state.optionBurl
+    }
+    const optionC = {
+      name: this.state.optionCName,
+      price: this.state.optionCPrice,
+      url: this.state.optionCurl
+    }
+    const optionD = {
+      name: this.state.optionDName,
+      price: this.state.optionDPrice,
+      url: this.state.optionDurl
+    }
+    // const shopID = this.state.shopName.replace(/ /g, '').toLowerCase()
+    const data = {
+      shopID: this.state.shopName.replace(/ /g, '').toLowerCase(),
+      shopName: this.state.shopName,
+      productName: this.state.productName,
+      price: this.state.price,
+      imageURL: this.state.imageURL,
+      hasOptions: this.state.hasOptions,
+      options: [optionA, optionB, optionC, optionD],
+      hasSpecificDate: this.state.hasSpecificDate,
+      orderType: this.state.orderType,
+      hasDeliveryFee: this.state.hasDeliveryFee,
+      deliveryCost: this.state.deliveryCost,
+      instructions: this.state.instructions,
+      email: this.state.email
+    }
+    fetch('http://localhost:3000/api', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        this.setState({
+          shopCreated: true
+        })
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     console.log(this.state)
+  }
+
+  goToShop() {
+    
   }
 
   previousButton() {
@@ -276,6 +324,12 @@ class App extends Component {
             <button onClick={this.handleSubmit} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>Done!</button>
             : null}
 
+         {/*  {this.state.currentStep === this.state.totalSteps && this.state.shopCreated ?
+          <a href={`localhost:3000/shop/${this.state.shopID}`}>
+            <button onClick={this.goToShop} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>go to shop!</button>
+            </a>
+            : null}
+ */}
 
 
         </div>
