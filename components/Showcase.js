@@ -54,6 +54,9 @@ class Showcase extends Component {
             newStep = 11
         }
 
+        // should not proceed if no order is placed
+        if (this.state.currentStep === 3 && this.state.orders.length === 0) 
+            return
 
         this.setState({
             currentStep: newStep
@@ -122,8 +125,8 @@ class Showcase extends Component {
             return {
                 ...prevState, orders
             }
-        })
-        this.updateTotalCost()
+        },() => this.updateTotalCost())
+        
     }
 
     updateByOne = (name, quantity) => {
@@ -136,8 +139,7 @@ class Showcase extends Component {
                 ...prevState, orders
             }
 
-        })
-        this.updateTotalCost()
+        }, () => this.updateTotalCost())
     }
 
     updateTotalCost = () => {

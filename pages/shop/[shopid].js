@@ -7,9 +7,10 @@ import Showcase from '../../components/Showcase'
 const Shop = (props) => {
     const {apiData} = props
     console.log(apiData)
+    // console.log(`api data: ${apiData[0]}`)
     return (
-        // handle if not found
-        <Showcase data={apiData[0]}/>
+        apiData.length > 0 ? <Showcase data={apiData[0]}/> : null
+        
     )
 }
 

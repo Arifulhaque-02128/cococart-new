@@ -9,6 +9,11 @@ const IndividualOrder = (props) => {
         // props.updateTotalCost()
     }, [quantity])
 
+    // const handleIncrement = () => {
+    //     setQuantity(prevQuantity => Number(prevQuantity)+1)
+    //     props.updateByOne(props.name, quantity)
+    // }
+
 
 
     return (
@@ -30,7 +35,9 @@ const IndividualOrder = (props) => {
                     +
                 </button>
                 <h2>{quantity}</h2>
-                <button className={styles.btnCalculate} onClick={() => setQuantity(prevQuantity => Number(prevQuantity)-1)}>
+                <button className={styles.btnCalculate} onClick={() => {
+                    if(quantity > 0) setQuantity(prevQuantity => Number(prevQuantity)-1)
+                }}>
                     -
                 </button>
             </div>

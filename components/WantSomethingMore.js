@@ -28,8 +28,7 @@ const WantSomethingMore = (props) => {
                             <h2>Your order</h2>
                             <h2 className={styles.totalCost}>৳{props.data.totalCost}</h2>
                         </div>
-                        {/* <IndividualOrder />
-                   <IndividualOrder /> */}
+                    
                         {
                             AllOrderComponents
                         }
