@@ -128,15 +128,21 @@ $background-color: #EEE2D7;
     // font-size: small;
     cursor: pointer;
     margin: 10px;
-    
+    img {
+      // width: 40px;
+      
+
+    }
   }
   .uploadImg {
     float: left;
     width: 40px;
+    height: 40px;
     margin-top: 10px;
     border: 2px solid #ffffff;
     box-shadow: 1px 1px 4px rgb(209, 209, 209);
     border-radius: 5px;
+    object-fit: cover;
   }
   .uploadImgBig {
     height: 200px;

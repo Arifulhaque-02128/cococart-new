@@ -16,7 +16,9 @@ const InputEmail = (props) => {
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        name="confirmationEmail"
+                        onChange={props.handleChange}
+                        value={props.data.confirmationEmail}
                     />
                 </div>
 

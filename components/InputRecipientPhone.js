@@ -17,7 +17,9 @@ const InputRecipientPhone = (props) => {
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        name="recipientPhone"
+                        onChange={props.handleChange}
+                        value={props.data.recipientPhone}
                     />
                 </div>
 

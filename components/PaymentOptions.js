@@ -8,10 +8,12 @@ const PaymentOptions = (props) => {
             <div className={styles.screenContentWrapper}>
                 <div className={styles.paymentWrapper}>
                     <div className={styles.titleQues}>
-                        <h2>How would you like to make payment?</h2>
+                        {/* <h2>How would you like to make payment?</h2> */}
+                        <h2>done?</h2>
                     </div>
-                    <button className={styles.btnPayment}>
-                        Credit/Debit Card
+                    <button className={styles.btnPayment} onClick={props.handleSubmit}>
+                        {/* Credit/Debit Card */}
+                        Done!
                     </button>
                 </div>
 

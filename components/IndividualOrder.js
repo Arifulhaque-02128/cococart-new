@@ -1,27 +1,36 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styles from '../styles/AppShow.module.scss'
 
-const IndividualOrder = () => {
+const IndividualOrder = (props) => {
+    const [quantity, setQuantity] = useState(props.quantity)
+
+    useEffect(() => {
+        props.updateByOne(props.name, quantity)
+        // props.updateTotalCost()
+    }, [quantity])
+
+
+
     return (
         <div className={styles.productWrapper}>
             <div className={styles.productDetails}>
                 <div className={styles.imageHolder}>
-                    <img src="/cactu.jpeg" />
+                    <img src={props.url} />
                 </div>
 
 
 
             </div>
             <div className={styles.product}>
-                <p>cactus</p>
-                <p>৳200</p>
+                <p>{props.name}</p>
+                <p>৳{props.price}</p>
             </div>
             <div className={styles.calculate}>
-                <button className={styles.btnCalculate}>
+                <button className={styles.btnCalculate} onClick={() => setQuantity(prevQuantity => Number(prevQuantity)+1)}>
                     +
                 </button>
-                <h2>2</h2>
-                <button className={styles.btnCalculate}>
+                <h2>{quantity}</h2>
+                <button className={styles.btnCalculate} onClick={() => setQuantity(prevQuantity => Number(prevQuantity)-1)}>
                     -
                 </button>
             </div>

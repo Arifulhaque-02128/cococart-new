@@ -8,6 +8,7 @@ const Shop = (props) => {
     const {apiData} = props
     console.log(apiData)
     return (
+        // handle if not found
         <Showcase data={apiData[0]}/>
     )
 }

@@ -4,42 +4,42 @@ const orderSchema = new mongoose.Schema({
     shopID: {
         type: String
     },
-    shopName: {
-        type: String
-    },
-    productName: {
-        type: String,
-    },
-    price: {
-        type: Number,
-    },
-    imageURL: {
-        type: String
-    },
-    hasOptions: {
-        type: Boolean
-    },
-    options: {
-        type: Array
-    },
-    hasSpecificDate: {
-        type: Boolean
-    },
-    orderType: {
-        type: String
-    },
-    hasDeliveryFee: {
-        type: Boolean
-    },
-    deliveryCost: {
+    orderDate: {
         type: Number
     },
-    instructions: {
+    orderMonth: {
+        type: Number
+    },
+    orderYear: {
+        type: Number
+    },
+    totalCost: {
+        type: Number,
+    },
+    orders: {
+        type: Array,
+    },
+    name: {
         type: String
     },
-    email: {
+    phone: {
         type: String
     },
+    isGift: {
+        type: Boolean
+    },
+    recipientName: {
+        type: String
+    },
+    recipientPhone: {
+        type: String
+    },
+    deliveryAddress: {
+        type: String
+    },
+    confirmationEmail: {
+        type: String
+    }
 });
 
 module.exports = mongoose.models.orderInfo || mongoose.model('orderInfo', orderSchema)

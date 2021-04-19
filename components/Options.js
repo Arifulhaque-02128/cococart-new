@@ -3,11 +3,19 @@ import styles from '../styles/AppShow.module.scss'
 import Option from './Option'
 
 const Options = (props) => {
-    // const AllOptions = props.data.options.map(option => {
-    //     return option.name?<Option name={option.name} price={option.price} src={option.url} />:null
-    // })
+
+    let AllOptionsComponent = props.data.options.reduce((AllOptionsComponent, option) => {
+        if(option.name) AllOptionsComponent.push(<Option key={option.url} name={option.name} price={option.price} url={option.url} addProduct={props.addProduct}/>)
+        return AllOptionsComponent
+    }, [])
 
     // if there is no option, just show the main product
+    if(AllOptionsComponent.length == 0) {
+        AllOptionsComponent = (
+            <Option name={props.data.productName} price={props.data.price} url={props.data.imageURL} addProduct={props.addProduct}/>
+        )
+    }
+    // console.log(AllOptionsComponent)
 
     return (
         props.data.currentStep === 3 ?
@@ -17,11 +25,16 @@ const Options = (props) => {
                     <h2>Which option of {props.data.productName} would you like?</h2>
                 </div>
 
-                {/* loop through the options and for each, show one option */}
                 <div className={styles.optionsWrapper} >
-                    {props.data.options.map(option => {
+                    {/* loop through the options and for each, show one option */}
+                    {/* {props.data.options.map(option => {
                         return option.name?<Option name={option.name} price={option.price} src={option.url} />:null
-                    })}
+                    })} */}
+
+                    {
+                        AllOptionsComponent
+                    }
+
                 </div>
 
 

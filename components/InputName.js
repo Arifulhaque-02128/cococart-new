@@ -16,7 +16,9 @@ const InputName = (props) => {
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        name="name"
+                        onChange={props.handleChange}
+                        value={props.data.name}
                     />
                 </div>
 

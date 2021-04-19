@@ -9,14 +9,16 @@ const InputAddress = (props) => {
                 <div className={styles.inputWrapper}>
                     <div className={styles.titleQues}>
                         <h2>What's the delivery address?</h2>
-                        <p>Delivery fee is ৳{props.deliveryCost}. </p>
+                        <p>Delivery fee is ৳{props.data.deliveryCost}. </p>
                     </div>
 
                     <input
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        name="deliveryAddress"
+                        onChange={props.handleChange}
+                        value={props.data.deliveryAddress}
                     />
                 </div>
 

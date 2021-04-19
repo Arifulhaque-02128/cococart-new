@@ -13,10 +13,12 @@ const InputRecipientName = (props) => {
                     </div>
 
                     <input
+                        name="recipientName"
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        onChange={props.handleChange}
+                        value={props.data.recipientName}
                     />
                 </div>
 

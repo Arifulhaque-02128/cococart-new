@@ -16,6 +16,8 @@ const HowMany = (props) => {
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
+                        onChange={props.updateProductQuantity}
+                        value = {props.data.orders[props.data.orders.length - 1].quantity}
 
                     />
                 </div>

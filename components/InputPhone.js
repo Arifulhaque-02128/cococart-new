@@ -14,10 +14,12 @@ const InputPhone = (props) => {
                     </div>
 
                     <input
+                        name="phone"
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
-
+                        onChange={props.handleChange}
+                        value={props.data.phone}
                     />
                 </div>
 

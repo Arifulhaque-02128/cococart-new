@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../styles/AppShow.module.scss'
-import DateOptions from './DateOptions'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 const OrderDate = (props) => {
     const [value, onChange] = useState(new (Date))
+
+    useEffect(() => {
+        props.setDate(value)
+
+    }, [value])
+
+
 
     return (
         props.data.currentStep === 2 ?

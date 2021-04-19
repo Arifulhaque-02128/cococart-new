@@ -13,6 +13,7 @@ import Step6 from '../steps/Step6'
 import Step9 from '../steps/Step9'
 import Step10 from '../steps/Step10'
 
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -25,7 +26,7 @@ class App extends Component {
       price: "",          // 4
       imageURL: "",
       hasOptions: false,  // 5
-      
+
       optionAName: "",    // 6
       optionBName: "",    // 6
       optionCName: "",    // 6
@@ -44,11 +45,14 @@ class App extends Component {
       hasDeliveryFee: false,  //  9
       deliveryCost: 0,        // 10
       instructions: "",       // 11
-      email: ""              // 12
+      email: "",              // 12
+      shopCreated: false
     }
+
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.goToShop = this.goToShop.bind(this)
     this.handleImageUpload = this.handleImageUpload.bind(this)
     this._next = this._next.bind(this)
     this._prev = this._prev.bind(this)
@@ -144,7 +148,7 @@ class App extends Component {
     }
     // const shopID = this.state.shopName.replace(/ /g, '').toLowerCase()
     const data = {
-      shopID: this.state.shopName.replace(/ /g,'').toLowerCase(),
+      shopID: this.state.shopName.replace(/ /g, '').toLowerCase(),
       shopName: this.state.shopName,
       productName: this.state.productName,
       price: this.state.price,
@@ -168,11 +172,18 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
+        this.setState({
+          shopCreated: true
+        })
       })
       .catch((error) => {
         console.error('Error:', error);
       });
     console.log(this.state)
+  }
+
+  goToShop() {
+    
   }
 
   previousButton() {
@@ -313,6 +324,12 @@ class App extends Component {
             <button onClick={this.handleSubmit} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>Done!</button>
             : null}
 
+         {/*  {this.state.currentStep === this.state.totalSteps && this.state.shopCreated ?
+          <a href={`localhost:3000/shop/${this.state.shopID}`}>
+            <button onClick={this.goToShop} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>go to shop!</button>
+            </a>
+            : null}
+ */}
 
 
         </div>
