@@ -20,7 +20,7 @@ const CreditAndDebit = () => {
             <div>
                 <BiCreditCard size={30} />
             </div>
-            <div>
+            <div className={styles.midContainer}>
                 <h4>Credit/Debit Card</h4>
                 <p>Increase sales by accepting card payments. Over 70% of buyers prefer paying by card. Card fees apply. </p>
                 {

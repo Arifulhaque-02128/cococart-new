@@ -16,11 +16,11 @@ const Settings = () => {
             </div>
             <div className={styles.card}>
                 <CreditAndDebit /> <br/>
-                <Bkash />
-                <Nagad />
-                <Rocket />
-                <BankTransfer />
-                <Cash />
+                <Bkash /> <br/>
+                <Nagad /> <br/>
+                <Rocket /> <br/>
+                <BankTransfer /> <br/>
+                <Cash /> <br/>
             </div>
         </div>
     );

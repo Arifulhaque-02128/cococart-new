@@ -18,7 +18,7 @@ const BankTransfer = () => {
             <div>
                 <RiBankFill size={30} />
             </div>
-            <div>
+            <div className={styles.midContainer}>
                 <h4>Bank Transfer</h4>
                 <p>Receive payment via your bank account. </p>
                 {

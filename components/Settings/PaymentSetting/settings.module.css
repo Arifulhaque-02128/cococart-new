@@ -49,3 +49,7 @@
     grid-template-columns: 5vw 36vw 6vw;
     text-align: justify;
 }
+
+.midContainer > h4 {
+    margin: 0 !important;
+}

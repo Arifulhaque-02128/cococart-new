@@ -14,7 +14,7 @@ const Cash = () => {
             <div>
                 <FaDollarSign size={30} />
             </div>
-            <div>
+            <div className={styles.midContainer}>
                 <h4>Cash</h4>
                 <p>Collect cash from customers upon delivery or pickup.</p>
                 {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {FaTelegramPlane} from 'react-icons/fa';
 import styles from './settings.module.css';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Image from 'next/image'
 
 const Rocket = () => {
 
@@ -16,15 +16,18 @@ const Rocket = () => {
     const [accNumber, setAccNumber] = useState("")
     const [accType, setAccType] = useState("")
     const [paymentInstruction, setPaymentInstruction] = useState("Payment has to be completed within 30 minutes for your order to be processed.")
-
-    console.log(accType)
     
     return (
         <div className={styles.settingStyle}>
             <div>
-                <FaTelegramPlane size={30} />
+            <Image
+                src="/nagad.svg"
+                alt="Nagad"
+                width={50}
+                height={50}
+            />
             </div>
-            <div>
+            <div  className={styles.midContainer}>
                 <h4>Nagad</h4>
                 <p>Allow customers to pay you via Nagad.</p>
                 {

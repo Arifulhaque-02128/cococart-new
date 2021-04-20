@@ -24,7 +24,7 @@ const Rocket = () => {
             <div>
                 <FaTelegramPlane size={30} />
             </div>
-            <div>
+            <div className={styles.midContainer}>
                 <h4>Rocket</h4>
                 <p>Allow customers to pay you via Rocket.</p>
                 {
