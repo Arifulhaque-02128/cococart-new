@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from '../styles/App.module.scss'
+import Step0 from '../steps/Step0'
 import Step1 from '../steps/Step1'
 import Step2 from '../steps/Step2'
 import Step3 from '../steps/Step3'
@@ -12,14 +13,26 @@ import Step12 from '../steps/Step12'
 import Step6 from '../steps/Step6'
 import Step9 from '../steps/Step9'
 import Step10 from '../steps/Step10'
-
+import StepFinal from '../steps/StepFinal'
+import Step101 from '../steps/Step102'
+import Step102 from '../steps/Step101'
+import Step103 from '../steps/Step103'
+import Step104 from '../steps/Step104'
+import Step105 from '../steps/Step105'
+import Step106 from '../steps/Step106'
+import Step107 from '../steps/Step107'
+import Step109 from '../steps/Step109'
+import Step108 from '../steps/Step108'
+import Step110 from '../steps/Step110'
+import Step111 from '../steps/Step111'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
       totalSteps: 12,
-      currentStep: 1,
+      currentStep: 0,
+      isProduct: true,    // product or service
       shopID: "",
       shopName: "",       // 1
       productName: "",    // 2
@@ -46,14 +59,24 @@ class App extends Component {
       deliveryCost: 0,        // 10
       instructions: "",       // 11
       email: "",              // 12
-      shopCreated: false
+      shopCreated: false,
+
+      name: "",
+      serviceName: "",
+      isOneTime: false,
+      cardDescription: "",
+      haveVideo: false,
+      youtubeLink: "",
+      wantSocial: ""
     }
 
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.goToShop = this.goToShop.bind(this)
+    this.handleServiceSubmit = this.handleServiceSubmit.bind(this)
     this.handleImageUpload = this.handleImageUpload.bind(this)
+    this.handleIsProduct = this.handleIsProduct.bind(this)
+    this.handleIsService = this.handleIsService.bind(this)
     this._next = this._next.bind(this)
     this._prev = this._prev.bind(this)
   }
@@ -61,15 +84,22 @@ class App extends Component {
   _next() {
     let currentStep = this.state.currentStep
 
+
     if (currentStep === 5 && !this.state.hasOptions) {
       currentStep += 2
     } else if (currentStep === 8 && this.state.orderType === "pickup") {
       currentStep += 3
     } else if (currentStep === 9 && !this.state.hasDeliveryFee) {
       currentStep += 2
+    } else if (currentStep === 107 && !this.state.haveVideo) {
+      currentStep += 2
+    } else if (currentStep === 109 && !this.state.wantSocial) {
+      currentStep += 2
     } else if (currentStep < this.state.totalSteps) {
       currentStep++
     }
+
+
 
 
     this.setState({
@@ -86,9 +116,16 @@ class App extends Component {
       currentStep -= 3
     } else if (currentStep === 11 && !this.state.hasDeliveryFee) {
       currentStep -= 2
-    } else if (currentStep > 0) {
+    } else if (currentStep === 111 && !this.state.wantSocial) {
+      currentStep -= 2
+    } else if (currentStep === 109 && !this.state.haveVideo) {
+      currentStep -= 2
+    } else if (currentStep === 101) {
+      currentStep = 0
+    } else if (currentStep >= 0) {
       currentStep--
     }
+
 
     this.setState({
       currentStep: currentStep
@@ -104,6 +141,8 @@ class App extends Component {
       value = false
     }
 
+    // console.log(event)
+
 
     if (type === "file") {
       this.setState({
@@ -112,9 +151,25 @@ class App extends Component {
     } else {
       this.setState({
         [name]: value
-      })
+      }, () => console.log(name, value))
     }
   }
+
+  handleIsService(event) {
+    this.setState({
+      isProduct: false,
+      currentStep: 101,
+      totalSteps: 111
+    })
+  }
+  handleIsProduct(event) {
+    this.setState({
+      isProduct: true,
+      currentStep: 1,
+      totalSteps: 12
+    })
+  }
+
 
   handleImageUpload(name, imgURL) {
     this.setState({
@@ -124,8 +179,8 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    const { shopName, productName, price, options, email } = this.state
-    alert(`Your Product ${productName} has been updated`)
+    // const { shopName, productName, price, options, email } = this.state
+    // alert(`Your Product ${productName} has been updated`)
     const optionA = {
       name: this.state.optionAName,
       price: this.state.optionAPrice,
@@ -173,7 +228,8 @@ class App extends Component {
       .then(data => {
         console.log('Success:', data);
         this.setState({
-          shopCreated: true
+          shopCreated: true,
+          currentStep: 13
         })
       })
       .catch((error) => {
@@ -182,13 +238,18 @@ class App extends Component {
     console.log(this.state)
   }
 
-  goToShop() {
-    
+  handleServiceSubmit(event) {
+    event.preventDefault()
+
+    const data = {
+
+    }
   }
+
 
   previousButton() {
     let currentStep = this.state.currentStep;
-    if (currentStep !== 1) {
+    if (currentStep !== 0) {
       return (
         <button
           className={`${styles.btn} ${styles.floatLeft}`}
@@ -203,7 +264,8 @@ class App extends Component {
 
   nextButton() {
     let currentStep = this.state.currentStep;
-    if (currentStep < this.state.totalSteps) {
+    console.log(currentStep)
+    if (currentStep < this.state.totalSteps && currentStep > 0) {
       return (
         <button
           className={`${styles.btn} ${styles.floatRight}`}
@@ -219,16 +281,30 @@ class App extends Component {
 
 
   render() {
+    if (this.state.shopCreated)
+      return (
+        <StepFinal
+          data={this.state}
+
+        />
+      )
     return (
       <div className={styles.topContainer}>
 
+
         <div className={styles.topFragment}>
           <div className={styles.stepCounter}>
-            <p>Step {this.state.currentStep} of {this.state.totalSteps}</p>
+            <p>Step {(this.state.currentStep) % 100} of {(this.state.totalSteps) % 100}</p>
             <hr />
           </div>
 
           <div className={styles.questionBlock}>
+            <Step0
+              data={this.state}
+              handleIsProduct={this.handleIsProduct}
+              handleIsService={this.handleIsService}
+              goNext={this._next}
+            />
             <Step1
               currentStep={this.state.currentStep}
               shopName={this.state.shopName}
@@ -316,6 +392,34 @@ class App extends Component {
               handleSubmit={this.handleSubmit}
             />
 
+
+
+
+            <Step101 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step102 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step103
+              data={this.state}
+              handleChange={this.handleChange}
+              goNext={this._next}
+              handleImageUpload={this.handleImageUpload} />
+            <Step104 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step105 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step106 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step107 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step108 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step109 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step110 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+            <Step111 data={this.state} handleChange={this.handleChange} handleSubmit={this.handleServiceSubmit} />
+            
+
+      {/* name: "",
+      serviceName: "",
+      isOneTime: false,
+      cardDescription: "",
+      haveVideo: false,
+      youtubeLink: "",
+      wantSocial: ""
+ */}
             {this.previousButton()}
             {this.nextButton()}
           </div>
@@ -324,7 +428,7 @@ class App extends Component {
             <button onClick={this.handleSubmit} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>Done!</button>
             : null}
 
-         {/*  {this.state.currentStep === this.state.totalSteps && this.state.shopCreated ?
+          {/*  {this.state.currentStep === this.state.totalSteps && this.state.shopCreated ?
           <a href={`localhost:3000/shop/${this.state.shopID}`}>
             <button onClick={this.goToShop} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>go to shop!</button>
             </a>
@@ -334,7 +438,7 @@ class App extends Component {
 
         </div>
 
-        
+
       </div>
     )
   }

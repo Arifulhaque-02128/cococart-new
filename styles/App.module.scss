@@ -74,6 +74,12 @@ $background-color: #EEE2D7;
   display: block;
   margin: auto;
 
+  .subLabel{
+    margin-top: 10px;
+    margin-bottom: -20px;
+    padding: 0;
+  }
+
   .radioWrapper {
     margin-top: 20px;
   }
@@ -133,6 +139,56 @@ $background-color: #EEE2D7;
       
 
     }
+
+  }
+  .zeroOptions {
+    // background-color: #CC835C;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .serviceWrapper {
+      width: 40%;
+    }
+    .productWrapper {
+      width: 40%;
+    }
+    
+
+    .btnService {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 4px rgb(209, 209, 209);
+
+      background: url('/service.png');
+      background-repeat: no-repeat;
+
+      background-size: 200px 200px;
+    }    
+    .btnProduct {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      box-shadow: 1px 1px 4px rgb(209, 209, 209);
+
+      background: url('/product.png');
+      background-repeat: no-repeat;
+
+      background-size: 200px 200px;
+    }
+    button {
+      border: none;
+      width: 100%;
+      font-size: 24px;
+      padding: 10px;
+      margin-top: 10px;
+      background: none;
+      cursor: pointer;
+    }
+    
+    p {
+      font-size: 24px;
+    }
   }
   .uploadImg {
     float: left;
@@ -159,6 +215,24 @@ $background-color: #EEE2D7;
     background-color: #EBD8CA;
     border: 2px solid #CC835C;
   }
+  // background-color: #CC835C;
+  .btnOptionWrapper {
+    // display: flex;
+    margin: 20px 0;
+    width: 100%;
+    button {
+      width: 100%;
+      margin: 5px 0;
+      font-size: 24px;
+      text-align: left;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+
+      padding: 10px;
+      
+    }
+  }
 }
 
 
@@ -180,6 +254,9 @@ $background-color: #EEE2D7;
 
   .mainContent {
     display: flex;
+    button {
+      cursor: pointer;
+    }
 
     .linkAndNext {
       width: 60%;
@@ -191,7 +268,7 @@ $background-color: #EEE2D7;
           display: flex;
           justify-content: space-between;
           .linkText {
-            width: 80%;
+            width: 75%;
             background-color: white;
             padding: 10px;
             border-radius: 5px;
@@ -221,21 +298,99 @@ $background-color: #EEE2D7;
           justify-content: space-between;
           button {
             width: 48%;
-            height: 200px;
+            height: 180px;
             // margin: 10px;
             cursor: pointer;
             h3 {
-              margin-top: 20px;
+              // margin-top: 20px;
             }
           }
         }
       }
     }
 
-    .summaryWrapper {
+    .right {
+      margin-left: 100px;
       width: 40%;
-      // background-color: aqua;
+
+      .txtPreview {
+        color: $step-counter-color;
+      }
+      .summaryWrapper {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 1px 1px 4px rgb(209, 209, 209);
+        padding: 20px;
+
+
+        hr {
+          color: rgba(168, 168, 168, 0.514);
+        }
+        .header {
+
+        }
+
+        .productDetails {
+          // height: 70px;
+          display: flex;
+          padding: 10px 0;
+          // background-color: #CC835C;
+          .imgProduct {
+            img {
+              width: 60px;
+              height: 60px;
+              border-radius: 5px;
+              box-shadow: 1px 1px 4px rgb(209, 209, 209);
+              object-fit: cover;
+            }
+          }
+          .txtProduct {
+            // background-color: #EBD8CA;
+            margin-top: 10px;
+            margin-left: 20px;
+            h3 {
+              margin: 0;
+              padding: 0;
+            }
+            p {
+              margin: 0;
+              padding: 0;
+            }
+          }
+
+        }
+        .total {
+          text-align: right;
+          margin-right: 10px;
+          h1 {
+            margin: 0;
+            padding: 0;
+          }
+          p {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        button {
+          width: 100%;
+          height: 40px;
+          font-size: 16px;
+          text-align: center;
+          text-decoration: none;
+          border: none;
+          border-radius: 5px;
+          // margin: auto;
+          margin-top: 15px;
+          background-color: #F37154;
+      
+        }
+
+
+      }
+
     }
+
 
 
   }
