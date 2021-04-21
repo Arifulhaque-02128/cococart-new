@@ -5,15 +5,18 @@ import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 
 
-const CreditAndDebit = () => {
+const CreditAndDebit = ({setting}) => {
+    
+    const [paymentSetting, setPaymentSetting] = setting
+    const { card } = paymentSetting
+    const { minAmount } = card;
+
     const [select, setSelect] = useState({
         switch: false,
       });
     const [select2, setSelect2] = useState({
         switch2: false
     })
-
-    const [inputValue, setInputValue] = useState("0")
     
     return (
         <div className={styles.settingStyle}>
@@ -27,7 +30,11 @@ const CreditAndDebit = () => {
                     select.switch && <div>
                         <Switch
                             checked={select2.switch2}
-                            onChange={(e) => setSelect2({...status, [e.target.name]: e.target.checked})}
+                            onChange={(e) => {
+                                    setSelect2({...status, [e.target.name]: e.target.checked})
+                                    setPaymentSetting({...paymentSetting, card:{ minAmount: '0' }})
+                                }
+                            }
                             color="primary"
                             name="switch2"
                             inputProps={{ 'aria-label': 'primary checkbox' }}
@@ -38,14 +45,18 @@ const CreditAndDebit = () => {
                     (select2.switch2 && select.switch) && <div>
                         <p>Allow payment with credit/debit cards only for orders over this amount, excluding delivery.</p>
                         <span>৳</span>
-                        <TextField onChange={(e) => setInputValue(e.target.value)} className={styles.cardField} value={inputValue} /> 
+                        <TextField onChange={(e) => setPaymentSetting({...paymentSetting, card: {...card, minAmount: e.target.value}}) } className={styles.cardField} value={minAmount} /> 
                     </div>
                 }
             </div>
             <div>
                 <Switch
                     checked={select.switch}
-                    onChange={(e) => setSelect({...status, [e.target.name]: e.target.checked})}
+                    onChange={(e) => {
+                            setSelect({...status, [e.target.name]: e.target.checked})
+                            setPaymentSetting({...paymentSetting, card:{ minAmount: '0' }})
+                        }
+                    }
                     color="primary"
                     name="switch"
                     inputProps={{ 'aria-label': 'primary checkbox' }}

@@ -1,24 +1,34 @@
+.settingPage{
+    background-color: #eaeaea;
+    padding: 1.5rem;
+}
+
 .container{
     min-height: 100vh;
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 2rem 0.5rem;
     display: grid;
-    grid-template-columns: 45vw 50vw;
+    grid-template-columns: 40vw 50vw;
     background-color: #eaeaea;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
 }
 @media only screen and (max-width: 800px){
     .container{
         min-height: 10vh;
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem 2rem 0.5rem;
         background-color: #eaeaea;
-        padding: 0.5rem;
         display: grid;
-        grid-template-columns: 96vw;
+        grid-template-columns: 85vw;
     }
     .settingStyle{
         padding: 1rem;
         display: grid !important;
         grid-template-columns: 12% 72% 12% !important;
         text-align: justify;
+    }
+    .saveBtn{
+        position: relative;
+        left: 85% !important;
     }
 }
 
@@ -53,3 +63,25 @@
 .midContainer > h4 {
     margin: 0 !important;
 }
+
+.saveBtn{
+    position: relative;
+    left: 90%;
+}
+
+.saveBtn > button{
+    background-color: rgba(255, 217, 0, 0.918);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+}
+/* 
+.message{
+    color: green;
+    font-size: medium;
+    text-align: center;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+} */

@@ -1,0 +1,54 @@
+.container{
+    min-height: 50vh;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 40vw 50vw;
+    background-color: #eaeaea;
+    margin-bottom: 20px;
+}
+
+.settingStyle{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 7vw 40vw;
+    text-align: justify;
+}
+
+.leftSide{
+    margin: 20px auto;
+}
+
+.card{
+    background-color: white;
+}
+
+.midContainer > h4 {
+    margin: 0 !important;
+}
+
+.formControl{
+    width: 95% !important;
+}
+
+.inputField{
+    margin-left: 5px !important;
+    margin-top: 15px !important;
+    width: 70% !important;
+}
+@media only screen and (max-width: 800px){
+    .container{
+        min-height: 10vh;
+        padding: 0.5rem;
+        background-color: #eaeaea;
+        padding: 0.5rem;
+        display: grid;
+        grid-template-columns: 85vw;
+        margin-bottom: 20px !important;
+    }
+    .settingStyle{
+        padding: 1rem;
+        display: grid !important;
+        grid-template-columns: 15% 75%  !important;
+        text-align: justify;
+    }
+}

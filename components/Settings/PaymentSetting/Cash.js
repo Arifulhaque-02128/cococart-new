@@ -4,11 +4,16 @@ import styles from './settings.module.css';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 
-const Cash = () => {
+const Cash = ({setting}) => {
+
+    const [paymentSetting, setPaymentSetting] = setting
+    const { cash } = paymentSetting
+    const { cashPayInstruction } = cash;
+
     const [select, setSelect] = useState({
         switch: false,
       });
-    const [cashPayInstruction, setCashPayInstruction] = useState("We will collect cash on delivery or pickup.")
+
     return (
         <div className={styles.settingStyle}>
             <div>
@@ -19,14 +24,18 @@ const Cash = () => {
                 <p>Collect cash from customers upon delivery or pickup.</p>
                 {
                      select.switch && <div>
-                         <TextField onChange={(e) => setCashPayInstruction(e.target.value)} className={styles.inputField}  label="Payment Instructions" value={cashPayInstruction} multiline /> <br/>
+                         <TextField onChange={(e) => setPaymentSetting({...paymentSetting, cash: {...cash, cashPayInstruction: e.target.value} })} className={styles.inputField}  label="Payment Instructions" value={cashPayInstruction} multiline /> <br/>
                      </div>
                 }
             </div>
             <div>
                 <Switch
                     checked={select.switch}
-                    onChange={(e) => setSelect({...status, [e.target.name]: e.target.checked})}
+                    onChange={(e) => {
+                            setSelect({...status, [e.target.name]: e.target.checked})
+                            setPaymentSetting({...paymentSetting, cash: { cashPayInstruction: 'We will collect cash on delivery or pickup.'} })
+                        }
+                    }
                     color="primary"
                     name="switch"
                     inputProps={{ 'aria-label': 'primary checkbox' }}
