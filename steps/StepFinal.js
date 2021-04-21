@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 const StepFinal = (props) => {
     const router = useRouter()
     const shopURL = "http://localhost:3000/shop/".concat(props.data.shopID)
+    console.log(props.data.shopID)
     const goToShop = () => {
         router.push(shopURL)
     }

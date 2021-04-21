@@ -201,7 +201,12 @@ class App extends Component {
       price: this.state.optionDPrice,
       url: this.state.optionDurl
     }
-    // const shopID = this.state.shopName.replace(/ /g, '').toLowerCase()
+
+    const shopID = this.state.shopName.replace(/ /g, '').toLowerCase()
+    this.setState({
+      shopID: shopID
+    })
+    
     const data = {
       shopID: this.state.shopName.replace(/ /g, '').toLowerCase(),
       shopName: this.state.shopName,
