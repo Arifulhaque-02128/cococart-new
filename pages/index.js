@@ -224,7 +224,8 @@ class App extends Component {
       hasDeliveryFee: this.state.hasDeliveryFee,
       deliveryCost: this.state.deliveryCost,
       instructions: this.state.instructions,
-      email: this.state.email
+      email: this.state.email,
+      isProduct: true
     }
     fetch('http://localhost:3000/api', {
       method: 'POST', // or 'PUT'
@@ -263,11 +264,12 @@ class App extends Component {
       haveVideo: this.state.haveVideo,
       youtubeLink: this.state.youtubeLink,
       wantSocial: this.state.wantSocial,
-      confimationEmail: this.state.email
+      email: this.state.email,
+      isProduct: false
     }
     // send data to db
 
-    fetch('http://localhost:3000/api/createService', {
+    fetch('http://localhost:3000/api', {
       method: 'POST', // or 'PUT'
       headers: {
         'Content-Type': 'application/json',
@@ -288,39 +290,7 @@ class App extends Component {
       });
     
   }
-  // productName: "",    // 2
-  // price: "",          // 4
-  // imageURL: "",
-  // hasOptions: false,  // 5
 
-  // optionAName: "",    // 6
-  // optionBName: "",    // 6
-  // optionCName: "",    // 6
-  // optionDName: "",    // 6
-  // optionAPrice: "",   // 6
-  // optionBPrice: "",   // 6
-  // optionCPrice: "",   // 6
-  // optionDPrice: "",   // 6
-  // optionAurl: "",
-  // optionBurl: "",
-  // optionCurl: "",
-  // optionDurl: "",
-
-  // hasSpecificDate: false, //  7
-  // orderType: "",      // 8 (delivery/pickup/both)
-  // hasDeliveryFee: false,  //  9
-  // deliveryCost: 0,        // 10
-  // instructions: "",       // 11
-  // email: "",              // 12
-  // shopCreated: false,
-
-  // name: "",
-  // serviceName: "",
-  // isOneTime: false,
-  // cardDescription: "",
-  // haveVideo: false,
-  // youtubeLink: "",
-  // wantSocial: ""
 
   handleAddMore() {
     const isProduct = this.state.isProduct

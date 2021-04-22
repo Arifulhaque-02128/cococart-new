@@ -40,6 +40,33 @@ const shopSchema = new mongoose.Schema({
     email: {
         type: String
     },
+    isProduct: {
+        type: Boolean
+    },
+    name: {
+        type: String
+    },
+    serviceName: {
+        type: String
+    },
+    coverURL: {
+        type: String,
+    },
+    isOneTime: {
+        type: Boolean
+    },
+    cardDescription: {
+        type: String
+    },
+    haveVideo: {
+        type: Boolean
+    },
+    youtubeLink: {
+        type: String
+    },
+    wantSocial: {
+        type: Boolean
+    },
     setting: {
         type: Object
     }
