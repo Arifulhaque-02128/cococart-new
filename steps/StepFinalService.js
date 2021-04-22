@@ -6,7 +6,7 @@ import { useRouter } from 'next/router'
 
 const StepFinal = (props) => {
     const router = useRouter()
-    const shopURL = "http://localhost:3000/shop/".concat(props.data.shopID)
+    const shopURL = "http://localhost:3000/service/".concat(props.data.shopID)
     console.log(props.data.shopID)
     const goToShop = () => {
         router.push(shopURL)
@@ -51,35 +51,23 @@ const StepFinal = (props) => {
                         <div className={styles.productDetails}>
                             <div className={styles.imgProduct}>
                                 {/* imgURL */}
-                                <img src={props.data.imageURL}/>
-
+                                <img src='/service_logo.png'/>
+                            
                             </div>
                             <div className={styles.txtProduct}>
                                 {/* productName */}
-                                <h3>{props.data.productName}</h3>
+                                <h3>{props.data.serviceName}</h3>
                                 {/* price */}
                                 <p>৳{props.data.price}</p>
                             </div>
 
                         </div>
-                        <hr />
-                        <div className={styles.productDetails}>
-                            <div className={styles.imgProduct}>
-                                <img src="/delivery.png" />
-
-                            </div>
-                            <div className={styles.txtProduct}>
-                                {/* del/pickup/both */}
-                                <h3>Delivery</h3>
-                                {/* deliveryCost */}
-                                <p>৳{props.data.deliveryCost}</p>
-                            </div>
-                        </div>
+                        
                         <hr />
                         <div className={styles.total}>
                             <p className={styles.txtTotal}>Total</p>
                             {/* totalcost */}
-                            <h1 className={styles.amount}>৳{Number(props.data.price) + Number(props.data.deliveryCost)}</h1>
+                            <h1 className={styles.amount}>৳{props.data.price}</h1>
                         </div>
                         <div className={styles.btnWrapper}>
                             <button>

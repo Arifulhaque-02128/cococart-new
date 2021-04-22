@@ -13,6 +13,7 @@ import InputAddress from './InputAddress'
 import InputEmail from './InputEmail'
 import PaymentOptions from './PaymentOptions'
 import WantSomethingMore from './WantSomethingMore'
+import OrderSummary from './OrderSummary'
 import Nav from './Nav'
 
 class Showcase extends Component {
@@ -35,7 +36,7 @@ class Showcase extends Component {
             deliveryAddress: "",
             confirmationEmail: "",
 
-            totalSteps: 13,
+            totalSteps: 14,
             currentStep: 1
 
         }
@@ -53,6 +54,8 @@ class Showcase extends Component {
         } else if (this.state.currentStep === 8 && !this.state.isGift) {
             newStep = 11
         }
+
+        console.log(newStep);
 
         // should not proceed if no order is placed
         if (this.state.currentStep === 3 && this.state.orders.length === 0) 
@@ -221,6 +224,7 @@ class Showcase extends Component {
 
                 <InputAddress data={this.state} handleChange={this.handleChange} />
                 <InputEmail data={this.state} handleChange={this.handleChange} />
+                <OrderSummary data={this.state} handleChange={this.handleChange} />
                 <PaymentOptions data={this.state} handleSubmit={this.handleSubmit} />
 
 

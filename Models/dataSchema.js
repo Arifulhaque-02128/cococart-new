@@ -40,6 +40,9 @@ const shopSchema = new mongoose.Schema({
     email: {
         type: String
     },
+    settings: {
+        type:Array
+    }
 });
 
 module.exports = mongoose.models.shopInfo || mongoose.model('shopInfo', shopSchema)

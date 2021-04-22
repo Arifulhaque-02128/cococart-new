@@ -25,6 +25,7 @@ import Step109 from '../steps/Step109'
 import Step108 from '../steps/Step108'
 import Step110 from '../steps/Step110'
 import Step111 from '../steps/Step111'
+import StepFinalService from '../steps/StepFinalService'
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class App extends Component {
     this.handleImageUpload = this.handleImageUpload.bind(this)
     this.handleIsProduct = this.handleIsProduct.bind(this)
     this.handleIsService = this.handleIsService.bind(this)
+    this.handleAddMore = this.handleAddMore.bind(this)
     this._next = this._next.bind(this)
     this._prev = this._prev.bind(this)
   }
@@ -162,6 +164,8 @@ class App extends Component {
       totalSteps: 111
     })
   }
+
+
   handleIsProduct(event) {
     this.setState({
       isProduct: true,
@@ -234,7 +238,7 @@ class App extends Component {
         console.log('Success:', data);
         this.setState({
           shopCreated: true,
-          currentStep: 13
+          currentStep: this.state.totalSteps
         })
       })
       .catch((error) => {
@@ -246,9 +250,120 @@ class App extends Component {
   handleServiceSubmit(event) {
     event.preventDefault()
 
-    const data = {
+    const shopID = this.state.name.replace(/ /g, '').toLowerCase()
 
+    const data = {
+      shopID: this.state.name.replace(/ /g, '').toLowerCase(),
+      name: this.state.name,
+      serviceName: this.state.serviceName,
+      coverURL: this.state.imageURL,
+      price: this.state.price,
+      isOneTime: this.state.isOneTime,
+      cardDescription: this.state.cardDescription,
+      haveVideo: this.state.haveVideo,
+      youtubeLink: this.state.youtubeLink,
+      wantSocial: this.state.wantSocial,
+      confimationEmail: this.state.email
     }
+    // send data to db
+
+    fetch('http://localhost:3000/api/createService', {
+      method: 'POST', // or 'PUT'
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        this.setState({
+          shopCreated: true,
+          currentStep: this.state.totalSteps,
+          shopID: shopID
+        })
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    
+  }
+  // productName: "",    // 2
+  // price: "",          // 4
+  // imageURL: "",
+  // hasOptions: false,  // 5
+
+  // optionAName: "",    // 6
+  // optionBName: "",    // 6
+  // optionCName: "",    // 6
+  // optionDName: "",    // 6
+  // optionAPrice: "",   // 6
+  // optionBPrice: "",   // 6
+  // optionCPrice: "",   // 6
+  // optionDPrice: "",   // 6
+  // optionAurl: "",
+  // optionBurl: "",
+  // optionCurl: "",
+  // optionDurl: "",
+
+  // hasSpecificDate: false, //  7
+  // orderType: "",      // 8 (delivery/pickup/both)
+  // hasDeliveryFee: false,  //  9
+  // deliveryCost: 0,        // 10
+  // instructions: "",       // 11
+  // email: "",              // 12
+  // shopCreated: false,
+
+  // name: "",
+  // serviceName: "",
+  // isOneTime: false,
+  // cardDescription: "",
+  // haveVideo: false,
+  // youtubeLink: "",
+  // wantSocial: ""
+
+  handleAddMore() {
+    const isProduct = this.state.isProduct
+    let newStep = isProduct ? 2 : 102
+    this.setState({
+      currentStep: newStep,
+      shopCreated: false,
+      productName: "",   
+      price: "",          
+      imageURL: "",
+      hasOptions: false, 
+    
+      optionAName: "",   
+      optionBName: "",   
+      optionCName: "",    
+      optionDName: "",    
+      optionAPrice: "",   
+      optionBPrice: "",   
+      optionCPrice: "",   
+      optionDPrice: "",   
+      optionAurl: "",
+      optionBurl: "",
+      optionCurl: "",
+      optionDurl: "",
+    
+      hasSpecificDate: false, 
+      orderType: "",      
+      hasDeliveryFee: false,  
+      deliveryCost: 0,        
+      instructions: "",       
+      email: "",              
+      shopCreated: false,
+    
+      name: "",
+      serviceName: "",
+      isOneTime: false,
+      cardDescription: "",
+      haveVideo: false,
+      youtubeLink: "",
+      wantSocial: ""
+
+    })
+    
   }
 
 
@@ -286,13 +401,15 @@ class App extends Component {
 
 
   render() {
-    if (this.state.shopCreated)
+    if (this.state.shopCreated && this.state.isProduct)
       return (
-        <StepFinal
-          data={this.state}
-
-        />
+        <StepFinal data={this.state} handleAddMore={this.handleAddMore}/>
       )
+    if (this.state.shopCreated && !this.state.isProduct){
+      return (
+        <StepFinalService data={this.state} handleAddMore={this.handleAddMore}/>
+      )
+    }
     return (
       <div className={styles.topContainer}>
 
@@ -416,21 +533,16 @@ class App extends Component {
             <Step110 data={this.state} handleChange={this.handleChange} goNext={this._next} />
             <Step111 data={this.state} handleChange={this.handleChange} handleSubmit={this.handleServiceSubmit} />
             
-
-      {/* name: "",
-      serviceName: "",
-      isOneTime: false,
-      cardDescription: "",
-      haveVideo: false,
-      youtubeLink: "",
-      wantSocial: ""
- */}
             {this.previousButton()}
             {this.nextButton()}
           </div>
 
-          {this.state.currentStep === this.state.totalSteps ?
+          {this.state.currentStep === this.state.totalSteps && this.state.isProduct?
             <button onClick={this.handleSubmit} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>Done!</button>
+            : null}
+
+          {this.state.currentStep === this.state.totalSteps && !this.state.isProduct?
+            <button onClick={this.handleServiceSubmit} className={`${styles.btn} ${styles.btnSuccess} ${styles.btnBlock}`}>Done!</button>
             : null}
 
           {/*  {this.state.currentStep === this.state.totalSteps && this.state.shopCreated ?
