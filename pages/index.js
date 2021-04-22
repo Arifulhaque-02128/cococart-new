@@ -225,7 +225,8 @@ class App extends Component {
       deliveryCost: this.state.deliveryCost,
       instructions: this.state.instructions,
       email: this.state.email,
-      isProduct: true
+      isProduct: true,
+      setting: ['rocket']
     }
     fetch('http://localhost:3000/api', {
       method: 'POST', // or 'PUT'
@@ -265,7 +266,8 @@ class App extends Component {
       youtubeLink: this.state.youtubeLink,
       wantSocial: this.state.wantSocial,
       email: this.state.email,
-      isProduct: false
+      isProduct: false,
+      setting: ['rocket']
     }
     // send data to db
 

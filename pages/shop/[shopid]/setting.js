@@ -1,10 +1,10 @@
 import React from 'react';
-import Payment from '../components/Settings/PaymentSetting/Settings'
+import Settings from '../../../components/Settings/PaymentSetting/Settings'
 
 const setting = () => {
     return (
         <div>
-            <Payment />
+            <Settings shopID="newshop"/>
         </div>
     );
 };

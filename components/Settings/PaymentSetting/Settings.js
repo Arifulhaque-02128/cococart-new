@@ -8,7 +8,7 @@ import Nagad from './Nagad';
 import styles from './settings.module.css';
 import PayoutSetting from '../PayOutSetting/PayoutSetting';
 
-const Settings = () => {
+const Settings = ({shopID}) => {
 
     const [paymentSetting, setPaymentSetting] = useState({
         card:{ minAmount: '0' },
@@ -23,12 +23,12 @@ const Settings = () => {
 
     const [isSaved, setIsSaved] = useState(false)
 
-    const shopID = "";
+    // const shopID = "";
 
 
     const handleSetting = () => {
 
-        const data = { payment_setting: paymentSetting, payout_setting: payoutSetting };
+        const data = [ paymentSetting, payoutSetting ];
 
         fetch(`http://localhost:3000/api/${shopID}`, {
         method: 'PUT', 
@@ -45,8 +45,8 @@ const Settings = () => {
         console.error('Error:', error);
         });
 
-        console.log(paymentSetting);
-        console.log(payoutSetting);
+        // console.log(paymentSetting);
+        // console.log(payoutSetting);
         
         setIsSaved(true)
     }

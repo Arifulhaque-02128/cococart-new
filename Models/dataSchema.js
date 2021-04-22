@@ -68,7 +68,7 @@ const shopSchema = new mongoose.Schema({
         type: Boolean
     },
     setting: {
-        type: Object
+        type: Array
     }
 });
 

@@ -1,7 +1,7 @@
 import React from 'react'
-import shopSchema from '../../Models/dataSchema'
-import { dbConnect, jsonify } from '../../utils/dbConnect'
-import Showcase from '../../components/Showcase'
+import shopSchema from '../../../Models/dataSchema'
+import { dbConnect, jsonify } from '../../../utils/dbConnect'
+import Showcase from '../../../components/Showcase'
 
 
 const Shop = (props) => {
