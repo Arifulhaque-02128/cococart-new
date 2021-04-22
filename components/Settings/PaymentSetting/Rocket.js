@@ -8,16 +8,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const Rocket = () => {
+const Rocket = ({setting}) => {
+
+    const [paymentSetting, setPaymentSetting] = setting
+    const { rocket } = paymentSetting
+    const { accType, paymentInstruction, accNumber } = rocket;
 
     const [select, setSelect] = useState({
         switch: false,
       });
-    const [accNumber, setAccNumber] = useState("")
-    const [accType, setAccType] = useState("")
-    const [paymentInstruction, setPaymentInstruction] = useState("Payment has to be completed within 30 minutes for your order to be processed.")
-
-    console.log(accType)
     
     return (
         <div className={styles.settingStyle}>
@@ -29,14 +28,14 @@ const Rocket = () => {
                 <p>Allow customers to pay you via Rocket.</p>
                 {
                     select.switch && <div>
-                    <TextField onChange={(e) => setAccNumber(e.target.value)} className={styles.inputField} placeholder="01234567890" label="Account Number" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, rocket: {...rocket, accNumber: e.target.value}})} className={styles.inputField} placeholder="01234567890" label="Account Number" /> <br/>
 
                     <FormControl className={styles.inputField} >
                         <InputLabel id="account-type">Account Type</InputLabel>
                         <Select
                             labelId="account-type"
                             value={accType}
-                            onChange={(e) => setAccType(e.target.value)}
+                            onChange={(e) => setPaymentSetting({...paymentSetting, rocket: {...rocket, accType: e.target.value}})}
                         >
                             <MenuItem value={"Personal"}>Personal</MenuItem>
                             <MenuItem value={"Agent"}>Agent</MenuItem>
@@ -44,7 +43,7 @@ const Rocket = () => {
                         </Select>
                     </FormControl> <br/>
 
-                    <TextField onChange={(e) => setPaymentInstruction(e.target.value)} className={styles.inputField}  label="Payment Instructions" value={paymentInstruction} multiline /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, rocket: {...rocket, paymentInstruction: e.target.value}})} className={styles.inputField}  label="Payment Instructions" value={paymentInstruction} multiline /> <br/>
 
                 </div>
                 }
@@ -52,7 +51,11 @@ const Rocket = () => {
             <div>
                 <Switch
                     checked={select.switch}
-                    onChange={(e) => setSelect({...status, [e.target.name]: e.target.checked})}
+                    onChange={(e) => {
+                            setSelect({...status, [e.target.name]: e.target.checked})
+                            setPaymentSetting({...paymentSetting, rocket: { accNumber: '', accType: '', paymentInstruction: 'Payment has to be completed within 30 minutes for your order to be processed.' } })
+                        }
+                    }
                     color="primary"
                     name="switch"
                     inputProps={{ 'aria-label': 'primary checkbox' }}

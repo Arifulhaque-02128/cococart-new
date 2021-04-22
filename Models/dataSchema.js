@@ -40,8 +40,8 @@ const shopSchema = new mongoose.Schema({
     email: {
         type: String
     },
-    settings: {
-        type:Array
+    setting: {
+        type: Object
     }
 });
 

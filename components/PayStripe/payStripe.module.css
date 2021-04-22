@@ -1,7 +1,20 @@
+.stripeContainer{
+    width: 90vw !important;
+    margin: 0px auto !important;
+    padding: 2rem 0.5rem;
+}
 
+.inputField{
+    border: none;
+    background-color: white;
+    margin: 0rem auto 1rem auto;
+    width: 53vw;
+    padding: 5px 10px;
+}
 .FormGroup {
-    margin: 0 15px 20px;
-    padding: 20px;
+    margin: 1rem auto;
+    width: 60vw;
+    padding: 3rem;
     border-style: none;
     background-color: whitesmoke;
     will-change: opacity, transform;
@@ -11,15 +24,54 @@
 }
   
 .FormRow {
-    /* display: -ms-flexbox; */
-    /* display: flex;
-    -ms-flex-align: center;
-    align-items: center; */
-    margin-left: 15px;
-    width: 30vw;
+    width: 100%;
 }
-
+@media only screen and (max-width: 900px){  
+    .inputField{
+        margin: 0rem auto 1rem auto;
+        width: 71vw;
+        padding: 5px 10px;
+    } 
+    .FormGroup {
+        margin: 1rem auto;
+        width: 90vw;
+        padding: 3rem;
+        border-style: none;
+        background-color: whitesmoke;
+        will-change: opacity, transform;
+        box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 #829fff;
+        border-radius: 4px;
+    }
+    .titleDiv{
+        width: 90vw !important;
+        margin: 5rem 1rem 1rem 1.9rem !important;
+    }
+}
 .stripeForm{
     background-color: white;
     padding: 10px;
+}
+.paymentBtn{
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: rgba(255, 140, 0, 0.808);
+    padding: 14px 28px;
+    margin: 10px 0px;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    text-align: center;
+}
+.Label{
+    margin-top: 1rem;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.titleDiv{
+    width: 60vw;
+    margin: 5rem auto 1rem auto;
 }

@@ -4,15 +4,16 @@ import styles from './settings.module.css';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 
-const BankTransfer = () => {
+const BankTransfer = ({setting}) => {
+
+    const [paymentSetting, setPaymentSetting] = setting
+    const { bankTransfer } = paymentSetting
+    const { holderName, branch, bank, accNumber, paymentInstruction } = bankTransfer;
+
     const [select, setSelect] = useState({
         switch: false,
       });
-    const [holderName, setHolderName] = useState("")
-    const [bank, setBank] = useState("")
-    const [branch, setBranch] = useState("")
-    const [accNumber, setAccNumber] = useState("")
-    const [paymentInstruction, setPaymentInstruction] = useState("Payment has to be completed within 30 minutes for your order to be processed.")
+
     return (
         <div className={styles.settingStyle}>
             <div>
@@ -23,11 +24,11 @@ const BankTransfer = () => {
                 <p>Receive payment via your bank account. </p>
                 {
                     select.switch && <div>
-                    <TextField onChange={(e) => setHolderName(e.target.value)} className={styles.inputField} placeholder="John Doe" label="Account Holder Name" /> <br/>
-                    <TextField onChange={(e) => setBank(e.target.value)} className={styles.inputField} placeholder="City Bank" label="Bank" /> <br/>
-                    <TextField onChange={(e) => setBranch(e.target.value)} className={styles.inputField} label="Branch" /> <br/>
-                    <TextField onChange={(e) => setAccNumber(e.target.value)} className={styles.inputField} placeholder="50600111118" label="Account Number" /> <br/>
-                    <TextField onChange={(e) => setPaymentInstruction(e.target.value)} className={styles.inputField}  label="Payment Instructions" value={paymentInstruction} multiline /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, holderName: e.target.value} })} className={styles.inputField} placeholder="John Doe" label="Account Holder Name" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, bank: e.target.value} })} className={styles.inputField} placeholder="City Bank" label="Bank" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, branch: e.target.value} })} className={styles.inputField} label="Branch" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, accNumber: e.target.value} })} className={styles.inputField} placeholder="50600111118" label="Account Number" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, paymentInstruction: e.target.value} })} className={styles.inputField}  label="Payment Instructions" value={paymentInstruction} multiline /> <br/>
 
                 </div>
                 }
@@ -35,7 +36,11 @@ const BankTransfer = () => {
             <div>
                 <Switch
                     checked={select.switch}
-                    onChange={(e) => setSelect({...status, [e.target.name]: e.target.checked})}
+                    onChange={(e) => {
+                        setSelect({...status, [e.target.name]: e.target.checked})
+                        setPaymentSetting({...paymentSetting, bankTransfer: { holderName: "", bank: "", branch: "", accNumber: "", paymentInstruction:"Payment has to be completed within 30 minutes for your order to be processed." } })
+                        }
+                    }
                     color="primary"
                     name="switch"
                     inputProps={{ 'aria-label': 'primary checkbox' }}
