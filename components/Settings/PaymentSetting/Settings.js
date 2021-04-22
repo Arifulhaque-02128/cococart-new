@@ -45,8 +45,8 @@ const Settings = () => {
         console.error('Error:', error);
         });
 
-        // console.log(paymentSetting);
-        // console.log(payoutSetting);
+        console.log(paymentSetting);
+        console.log(payoutSetting);
         
         setIsSaved(true)
     }
