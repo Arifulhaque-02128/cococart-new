@@ -15,7 +15,7 @@ const Rocket = ({setting}) => {
     const { accType, paymentInstruction, accNumber } = bkash;
 
     const [select, setSelect] = useState({
-        switch: false,
+        switch: accType ? true : false
       });
     
     return (
@@ -33,7 +33,7 @@ const Rocket = ({setting}) => {
                 <p>Allow customers to pay you via bKash.</p>
                 {
                     select.switch && <div>
-                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bkash: {...bkash, accNumber: e.target.value}})} className={styles.inputField} placeholder="01234567890" label="Account Number" /> <br/>
+                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bkash: {...bkash, accNumber: e.target.value}})} className={styles.inputField} placeholder="01234567890" label="Account Number" value={accNumber} /> <br/>
 
                     <FormControl className={styles.inputField} >
                         <InputLabel id="account-type">Account Type</InputLabel>

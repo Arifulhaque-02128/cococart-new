@@ -11,7 +11,7 @@ const BankTransfer = ({setting}) => {
     const { holderName, branch, bank, accNumber, paymentInstruction } = bankTransfer;
 
     const [select, setSelect] = useState({
-        switch: false,
+        switch: bank ? true:false,
       });
 
     return (
@@ -24,10 +24,10 @@ const BankTransfer = ({setting}) => {
                 <p>Receive payment via your bank account. </p>
                 {
                     select.switch && <div>
-                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, holderName: e.target.value} })} className={styles.inputField} placeholder="John Doe" label="Account Holder Name" /> <br/>
-                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, bank: e.target.value} })} className={styles.inputField} placeholder="City Bank" label="Bank" /> <br/>
-                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, branch: e.target.value} })} className={styles.inputField} label="Branch" /> <br/>
-                    <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, accNumber: e.target.value} })} className={styles.inputField} placeholder="50600111118" label="Account Number" /> <br/>
+                    <TextField value={holderName} onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, holderName: e.target.value} })} className={styles.inputField} placeholder="John Doe" label="Account Holder Name" /> <br/>
+                    <TextField value={bank} onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, bank: e.target.value} })} className={styles.inputField} placeholder="City Bank" label="Bank" /> <br/>
+                    <TextField value={branch} onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, branch: e.target.value} })} className={styles.inputField} label="Branch" /> <br/>
+                    <TextField value={accNumber} onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, accNumber: e.target.value} })} className={styles.inputField} placeholder="50600111118" label="Account Number" /> <br/>
                     <TextField onChange={(e) => setPaymentSetting({...paymentSetting, bankTransfer: {...bankTransfer, paymentInstruction: e.target.value} })} className={styles.inputField}  label="Payment Instructions" value={paymentInstruction} multiline /> <br/>
 
                 </div>

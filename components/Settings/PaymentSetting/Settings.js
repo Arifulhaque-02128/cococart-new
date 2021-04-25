@@ -8,18 +8,22 @@ import Nagad from './Nagad';
 import styles from './settings.module.css';
 import PayoutSetting from '../PayOutSetting/PayoutSetting';
 
-const Settings = ({shopID}) => {
-
-    const [paymentSetting, setPaymentSetting] = useState({
+const Settings = ({shopID, setting}) => {
+    const initialPaymentSetting = {
         card:{ minAmount: '0' },
         bkash: { accNumber: '', accType: '', paymentInstruction: 'Payment has to be completed within 30 minutes for your order to be processed.' },
         rocket: { accNumber: '', accType: '', paymentInstruction: 'Payment has to be completed within 30 minutes for your order to be processed.' },
         nagad: { accNumber: '', accType: '', paymentInstruction: 'Payment has to be completed within 30 minutes for your order to be processed.' },
         bankTransfer: { holderName: "", bank: "", branch: "", accNumber: "", paymentInstruction:"Payment has to be completed within 30 minutes for your order to be processed." },
         cash: { cashPayInstruction: 'We will collect cash on delivery or pickup.'}
-    });
+    }
+    const initialPayoutSetting = {payout_method: '', payout_info: {} }
+    const retrievedPaymentSetting = setting[0]
+    const [paymentSetting, setPaymentSetting] = useState(retrievedPaymentSetting || initialPaymentSetting)
+    console.log("inside settings", paymentSetting)
 
-    const [payoutSetting, setPayoutSetting] = useState({payout_method: '', payout_info: {} })
+    const retrievedPayoutSetting = setting[1]
+    const [payoutSetting, setPayoutSetting] = useState(retrievedPayoutSetting || initialPayoutSetting)
 
     const [isSaved, setIsSaved] = useState(false)
 
@@ -49,6 +53,7 @@ const Settings = ({shopID}) => {
         // console.log(payoutSetting);
         
         setIsSaved(true)
+        setTimeout(() => {setIsSaved(false)}, 2000)
     }
 
     return (
@@ -75,7 +80,7 @@ const Settings = ({shopID}) => {
             <div className={styles.saveBtn}>
                 <button onClick={handleSetting}>Save</button>
             </div>
-            {/* <p className={styles.message}>{isSaved && "Saved Successfully..."}</p> */}
+            <p className={styles.message}>{isSaved && "Saved Successfully..."}</p>
         </div>
     );
 };

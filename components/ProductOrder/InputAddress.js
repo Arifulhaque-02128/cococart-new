@@ -1,25 +1,24 @@
 import React from 'react'
-import styles from '../styles/AppShow.module.scss'
+import styles from '../../styles/AppShow.module.scss'
 
-const InputPhone = (props) => {
+const InputAddress = (props) => {
     return (
-        props.data.currentStep === 7 ?
+        props.data.currentStep === 11 ?
         <div className={styles.screenWrapper}>
             <div className={styles.screenContentWrapper}>
                 <div className={styles.inputWrapper}>
                     <div className={styles.titleQues}>
-
-                        <h2>What's your phone number?</h2>
-                        <p>No spam. For order purposes only.</p>
+                        <h2>What's the delivery address?</h2>
+                        <p>Delivery fee is ৳{props.data.deliveryCost}. </p>
                     </div>
 
                     <input
-                        name="phone"
                         className={styles.input}
                         type="text"
                         placeholder="Enter here"
+                        name="deliveryAddress"
                         onChange={props.handleChange}
-                        value={props.data.phone}
+                        value={props.data.deliveryAddress}
                     />
                 </div>
 
@@ -33,4 +32,4 @@ const InputPhone = (props) => {
     )
 }
 
-export default InputPhone
+export default InputAddress

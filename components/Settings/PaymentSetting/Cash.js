@@ -11,7 +11,7 @@ const Cash = ({setting}) => {
     const { cashPayInstruction } = cash;
 
     const [select, setSelect] = useState({
-        switch: false,
+        switch: cashPayInstruction ? true : false,
       });
 
     return (

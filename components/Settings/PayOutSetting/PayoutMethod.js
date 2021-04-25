@@ -12,6 +12,8 @@ const PayoutMethod = ({setting}) => {
     const [payoutSetting, setPayoutSetting] = setting;
     const {payout_method, payout_info} = payoutSetting;
 
+    console.log("inside payoutmethod", payout_method, payout_info)
+
     const [value, setValue] = useState(payout_method);
 
     const handleChange = (event) => {
@@ -35,14 +37,14 @@ const PayoutMethod = ({setting}) => {
                         <FormControlLabel value="bank" control={<Radio />} label="Bank Transfer" />
                     </RadioGroup> <br/>
 
-                    <TextField onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, holder_name: e.target.value } }) } className={styles.inputField}  placeholder="Account holder name" />
+                    <TextField value={payout_info.holder_name} onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, holder_name: e.target.value } }) } className={styles.inputField}  placeholder="Account holder name" />
                     {
                         value === 'bank' && <div>
-                            <TextField onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, bank_name: e.target.value } }) } className={styles.inputField}  placeholder="Bank" /> <br/>
-                            <TextField onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, branch_name: e.target.value } }) } className={styles.inputField}  placeholder="Branch" /> <br/>
+                            <TextField value={payout_info.bank_name} onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, bank_name: e.target.value } }) } className={styles.inputField}  placeholder="Bank" /> <br/>
+                            <TextField value={payout_info.branch_name}  onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, branch_name: e.target.value } }) } className={styles.inputField}  placeholder="Branch" /> <br/>
                         </div>
                     }
-                    <TextField onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, account_number: e.target.value } }) } className={styles.inputField}  placeholder="Account number" /> <br/>
+                    <TextField value={payout_info.account_number} onChange={ (e) => setPayoutSetting({...payoutSetting, payout_info: {...payout_info, account_number: e.target.value } }) } className={styles.inputField}  placeholder="Account number" /> <br/>
 
                 </FormControl>
                 

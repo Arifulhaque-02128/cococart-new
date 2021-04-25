@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import styles from '../styles/AppShow.module.scss'
+import styles from '../../styles/AppShow.module.scss'
 
 const IndividualOrder = (props) => {
     const [quantity, setQuantity] = useState(props.quantity)

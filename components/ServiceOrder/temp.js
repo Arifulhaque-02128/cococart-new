@@ -1,5 +1,7 @@
-import React from 'react'
-import styles from '../styles/AppShow.module.scss'
+import React, {Component} from 'react'
+import styles from '../../styles/AppShow.module.scss'
+
+
 
 const temp = () => {
     return (

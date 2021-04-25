@@ -11,11 +11,13 @@ const CreditAndDebit = ({setting}) => {
     const { card } = paymentSetting
     const { minAmount } = card;
 
+    console.log("inside CreditAndDebit", card, minAmount)
+
     const [select, setSelect] = useState({
-        switch: false,
+        switch: minAmount ? true : false
       });
     const [select2, setSelect2] = useState({
-        switch2: false
+        switch2: minAmount ? true : false
     })
     
     return (

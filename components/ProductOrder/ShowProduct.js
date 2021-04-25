@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/AppShow.module.scss'
+import styles from '../../styles/AppShow.module.scss'
 
 const ShowProduct = (props) => {
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../styles/AppShow.module.scss'
+import styles from '../../styles/AppShow.module.scss'
 import Option from './Option'
 
 const Options = (props) => {
