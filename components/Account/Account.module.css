@@ -1,0 +1,74 @@
+.container{
+    min-height: 100vh;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 40vw 50vw;
+    background-color: #eaeaea;
+}
+
+.accountStyle{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 7vw 40vw;
+    text-align: justify;
+}
+
+.leftSide{
+    margin: 20px auto;
+}
+
+.card{
+    margin-top: 2rem;
+    background-color: white;
+}
+
+.midContainer > h4 {
+    margin: 0 !important;
+}
+
+.inputField{
+    margin-left: 5px !important;
+    margin-top: 15px !important;
+    width: 70% !important;
+}
+
+@media only screen and (max-width: 800px){
+    .container{
+        min-height: 100vh;
+        background-color: #eaeaea;
+        padding: 2.5rem;
+        display: grid;
+        grid-template-columns: 85vw;
+    }
+    .accountStyle{
+        padding: 1rem;
+        display: grid !important;
+        grid-template-columns: 15% 75%  !important;
+        text-align: justify;
+    }
+    .saveBtn{
+        position: relative;
+        left: 85% !important;
+    }
+}
+
+.saveBtn{
+    position: relative;
+    left: 91%;
+}
+
+.saveBtn > button{
+    background-color: rgba(255, 217, 0, 0.918);
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.message{
+    text-align: center;
+    color: green;
+    font-size: larger;
+    font-weight: 500;
+}
