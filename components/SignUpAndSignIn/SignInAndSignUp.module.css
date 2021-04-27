@@ -1,0 +1,58 @@
+.container{
+    width: 60vw;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 800px){
+    .container{
+        width: 90vw;
+        margin: 2rem auto;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 5px;
+    }
+}
+
+.container > div > h1{
+    text-align: center;
+}
+
+.loginForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.requiredMsg{
+    color: red;
+    text-align: left;
+    width: 60%;
+}
+
+.forgotPW{
+    color: darkgrey;
+    text-align: right !important;
+    width: 60%;
+}
+.forgotPW:hover{
+    width: 60%;
+    color: darkorange;
+    text-align: right !important;
+    cursor: pointer;
+}
+
+.textField{
+    width: 60%;
+}
+.loginBtn{
+    border: none;
+    border-radius: 5px;
+    background-color: gold;
+    padding: 0.5rem 1rem;
+    font-size: large;
+    margin-bottom: 2rem;
+}
