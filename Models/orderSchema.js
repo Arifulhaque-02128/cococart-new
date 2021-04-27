@@ -39,6 +39,12 @@ const orderSchema = new mongoose.Schema({
     },
     confirmationEmail: {
         type: String
+    },
+    whatsAppNumber: {
+        type: String
+    },
+    orderProcedure: {
+        type: String
     }
 });
 

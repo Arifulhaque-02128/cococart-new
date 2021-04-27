@@ -11,8 +11,8 @@ export default async (req, res) => {
     const updatedData = req.body;
 
 
-    console.log(shopID);
-    console.log("client data: ",updatedData);
+    // console.log(shopID);
+    // console.log("client data: ",updatedData);
 
     switch (method) {
         case "GET":
@@ -22,8 +22,8 @@ export default async (req, res) => {
                 // if(!settingForSpecificShop){
                 //     res.status(400).json({success: false})
                 // }
-                console.log("from api")
-                console.log(settingForSpecificShop)
+                // console.log("from api")
+                // console.log(settingForSpecificShop)
 
                 res.status(200).json(settingForSpecificShop)
             } catch (error) {
@@ -32,10 +32,10 @@ export default async (req, res) => {
             break;
         case "PUT":
             try {
-                console.log("from api put")
+                // console.log("from api put")
 
                 const updatedSetting = await dataSchema.findOneAndUpdate({shopID}, {setting: updatedData});
-                console.log(updatedSetting)
+                // console.log(updatedSetting)
 
                 if(!updatedSetting){
                     res.status(400).json({success: false})

@@ -6,11 +6,22 @@ import { useRouter } from 'next/router'
 
 const StepFinal = (props) => {
     const router = useRouter()
-    const shopURL = "http://localhost:3000/service/".concat(props.data.shopID)
+    const shopURL = "http://localhost:3000/shop/".concat(props.data.shopID)
+    const paymentURL = shopURL.concat('/setting')
     console.log(props.data.shopID)
     const goToShop = () => {
         router.push(shopURL)
     }
+
+    const handleSetPayment = () => {
+        router.push(paymentURL)
+    }
+
+
+
+
+
+
     return (
         props.data.shopCreated ? 
         <div className={styles.lastPageWrapper}>
@@ -34,7 +45,7 @@ const StepFinal = (props) => {
                                 <img src="/cart.png" />
                                 <h3 className={styles.addMore}>Add More</h3>
                             </button>
-                            <button className={styles.btnPayment}>
+                            <button className={styles.btnPayment} onClick={handleSetPayment}>
                                 <img src="/payment.png" />
 
                                 <h3>Set Payment Method</h3>

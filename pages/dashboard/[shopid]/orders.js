@@ -1,8 +1,6 @@
 import React from 'react'
 import shopSchema from '../../../Models/dataSchema'
 import { dbConnect, jsonify } from '../../../utils/dbConnect'
-import Showcase from '../../../components/ProductOrder/Showcase'
-import ShowcaseService from '../../../components/ServiceOrder/ShowcaseService'
 
 
 const Shop = (props) => {
@@ -13,9 +11,10 @@ const Shop = (props) => {
         // show ordering page here.
         // for product's shop, show Showcase, otherwise ShowcaseService
         
-        apiData.length > 0 ? <Showcase data={apiData[0]}/> : null
+        // apiData.length > 0 ? <Showcase data={apiData[0]}/> : null
         // apiData.length > 0 ? <ShowcaseService data={apiData[0]}/> : null
-        
+        <>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import styles from '../../styles/AppShow.module.scss'
 import IndividualOrder from './IndividualOrder'
 
@@ -28,7 +28,7 @@ const WantSomethingMore = (props) => {
                             <h2>Your order</h2>
                             <h2 className={styles.totalCost}>৳{props.data.totalCost}</h2>
                         </div>
-                    
+
                         {
                             AllOrderComponents
                         }
@@ -42,10 +42,10 @@ const WantSomethingMore = (props) => {
 
                         <button className={styles.btnMore} onClick={props.handleChange} value={true} name="wantMore">
                             Yes, I want more
-                    </button>
+                        </button>
                         <button className={styles.btnMore} onClick={props.handleChange} value={false} name="wantMore">
                             That's all I need
-                    </button>
+                        </button>
                     </div>
 
 

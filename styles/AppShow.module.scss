@@ -34,6 +34,45 @@ $step-counter-color: #CC835C;
             // background-color: #F37154;
         }
 
+        .optionCard {
+
+            margin: auto;
+            margin-top: 100px;
+            width: 70%;
+            border: 1px solid rgb(218, 218, 218);
+            border-radius: 5px;
+            display: flex;
+            background-color: white;
+
+            .descriptionWrapper {
+                margin: auto;
+                margin-left: 20px;
+            }
+
+            .divider {
+                height: 50px;
+                border-left: 1px solid gray;
+                margin: 20px;
+            }
+
+            .priceWrapper {
+                margin: auto;
+            }
+        }
+
+        .introWrapper {
+            // background-color: #776F4D;
+            width: 100%;
+            text-align: center;
+            .btnIntro {
+                background-color: $buttonColor;
+                border: none;
+                border-radius: 5px;
+                padding: 10px 10px;
+                color: white;
+            }
+        }
+
         .btnWrapper {
             width: fit-content;
             margin: auto;

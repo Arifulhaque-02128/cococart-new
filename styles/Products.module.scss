@@ -1,0 +1,35 @@
+
+
+.productsPage {
+    width: 90%;
+    margin: auto;
+    background-color: #FAFAFA;
+
+    .productsTopRow {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 180px;
+        margin-right: 50px;
+        .elementTopRow {
+            // margin: auto;
+        }
+    }
+
+    .productWrapper {
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        padding: 10px;
+    
+        .imgProduct {
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    
+        .element {
+            margin: auto;
+        }
+    }
+}
