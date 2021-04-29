@@ -28,7 +28,7 @@ const OrderSummary = (props) => {
 
 
     return (
-        props.data.currentStep === 13 ?
+        props.data.currentStep === 14 ?
             <div className={styles.screenWrapper}>
                 <div className={styles.summaryWrapper}>
 

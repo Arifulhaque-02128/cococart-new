@@ -3,7 +3,7 @@ import styles from '../../styles/AppShow.module.scss'
 
 const IsThisAGift = (props) => {
     return (
-        props.data.currentStep === 8 ?
+        props.data.currentStep === 9 ?
             <div className={styles.screenWrapper}>
                 <div className={styles.screenContentWrapper}>
                     <div className={styles.giftWrapper}>

@@ -3,7 +3,7 @@ import styles from '../../styles/AppShow.module.scss'
 
 const PaymentOptions = (props) => {
     return (
-        props.data.currentStep === 14 ?
+        props.data.currentStep === 15 ?
         <div className={styles.screenWrapper}>
             <div className={styles.screenContentWrapper}>
                 <div className={styles.paymentWrapper}>

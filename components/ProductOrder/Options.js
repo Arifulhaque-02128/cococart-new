@@ -4,7 +4,7 @@ import Option from './Option'
 
 const Options = (props) => {
 
-    let AllOptionsComponent = props.data.options.reduce((AllOptionsComponent, option) => {
+    let AllOptionsComponent = props.product.options.reduce((AllOptionsComponent, option) => {
         if(option.name) AllOptionsComponent.push(<Option key={option.url} name={option.name} price={option.price} url={option.url} addProduct={props.addProduct}/>)
         return AllOptionsComponent
     }, [])
@@ -15,10 +15,10 @@ const Options = (props) => {
             <Option name={props.data.productName} price={props.data.price} url={props.data.imageURL} addProduct={props.addProduct}/>
         )
     }
-    // console.log(AllOptionsComponent)
+    console.log(props.product)
 
     return (
-        props.data.currentStep === 3 ?
+        props.data.currentStep === 4 ?
         <div className={styles.screenWrapper}>
             <div className={styles.screenContentWrapper}>
                 <div className={styles.titleQues}>

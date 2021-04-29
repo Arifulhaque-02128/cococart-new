@@ -7,6 +7,9 @@ const shopSchema = new mongoose.Schema({
     shopName: {
         type: String
     },
+    products: {
+        type: Array
+    },
     productName: {
         type: String,
     },
@@ -68,6 +71,9 @@ const shopSchema = new mongoose.Schema({
         type: Boolean
     },
     setting: {
+        type: Array
+    },
+    accountDetails : {
         type: Array
     }
 });

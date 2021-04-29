@@ -1,15 +1,18 @@
 
 
 .productsPage {
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    padding: 100px;
+    height: 100vh;
+    margin: 0;
     background-color: #FAFAFA;
 
     .productsTopRow {
         display: flex;
         justify-content: space-between;
-        margin-left: 180px;
-        margin-right: 50px;
+        margin-left: 270px;
+        margin-right: 180px;
+        
         .elementTopRow {
             // margin: auto;
         }
@@ -20,6 +23,7 @@
         justify-content: space-between;
         background-color: white;
         padding: 10px;
+        border-bottom: 1px solid rgb(207, 207, 207);
     
         .imgProduct {
             width: 100px;
@@ -32,4 +36,127 @@
             margin: auto;
         }
     }
+}
+
+
+.editPageWrapper {
+    // width: 100%;
+    // background-color: #f55e5e;
+
+    .firstPortion {
+        background-color: #FAFAFA;
+        display: flex;
+        .pageHeader {
+            width: 20%;
+            margin: 50px;
+            // padding: 50px;
+            // float: left;
+            // background-color: aqua;
+        }
+    
+        .editor {
+            // float: right;
+            width: 60%;
+            background-color: white;
+            // border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px rgb(209, 209, 209);
+            margin: 50px;
+            padding: 50px;
+    
+            .txtfield {
+                margin-bottom: 20px;
+            }
+    
+            .imgProduct {
+                height: 70px;
+                width: 70px;
+                border-radius: 5px;
+                object-fit: cover;
+            }
+    
+            .inpImg {
+                display: none;
+            }
+        }
+    }
+
+    .secondPortion {
+        background-color: #FAFAFA;
+
+        display: flex;
+        .pageHeader {
+            width: 20%;
+            margin: 50px;
+            // padding: 50px;
+            // float: left;
+            // background-color: aqua;
+        }
+
+        .allEditors {
+            background-color: white;
+
+            width: 60%;
+            // background-color: wheat;
+            // border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 1px 1px 4px rgb(209, 209, 209);
+            margin: 50px;
+            padding: 50px;
+    
+            .editor {
+                // float: right;
+                border: 1px solid rgb(216, 216, 216);
+                border-radius: 5px;
+                padding: 20px;
+                margin-bottom: 10px;
+                .txtfield {
+                    margin-bottom: 20px;
+                }
+        
+                .imgProduct {
+                    height: 70px;
+                    width: 70px;
+                    border-radius: 5px;
+                    object-fit: cover;
+                }
+        
+                .inpImg {
+                    display: none;
+                }
+            }
+
+            .addMoreOption {
+                margin-top: 50px;
+                .btnAdd {
+                    border: 2px solid yellow;
+                    border-radius: 5px;
+                }
+            }
+
+        }
+    
+    }
+
+
+    .saveWrapper {
+        background-color: #FAFAFA;
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        // float: right;
+        // right:20%;
+        // margin-right: 100px;
+        // margin-bottom: 50px;
+        .btnSave {
+            right: 100px;
+            bottom: 20px;
+            border-radius: 5px;
+            background-color: #FDDA13;
+
+        }
+    }
+
+
+
 }

@@ -3,7 +3,7 @@ import styles from '../../styles/AppShow.module.scss'
 
 const InputRecipientName = (props) => {
     return (
-        props.data.currentStep === 9 ?
+        props.data.currentStep === 10 ?
         <div className={styles.screenWrapper}>
             <div className={styles.screenContentWrapper}>
                 <div className={styles.inputWrapper}>

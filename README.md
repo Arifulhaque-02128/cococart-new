@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Intro
 
-## Getting Started
+There are a couple of things that can be done here -
 
-First, run the development server:
+1. Create shops
+2. Order items from the shops
+3. See the shops and orders as a list in a dashboard, where they can be edited directly
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+`localhost:3000` takes to creating the shop. There are options to create a product based shop and a service based shop. After filling the form, the shopkeeper will be taken to an option where they can set the payment method, add more items to the shop and get the link of the shop, where anyone can place an order.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Inside the shop, there are options to make the order and place it, along with the paying options.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## File Structure
 
-## Deploy on Vercel
+The `pages/index.js` is the entry point of creating the shop. The components of the forms are inside the `steps` directory. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+For product based shops, the steps are numbered as - step1, step2 ... etc. On the other hand, the service based steps are numbered as - step101, step102 and so on. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Components for product-shops are kept inside `component/ProductOrder` directory and the entry point is `Showcase.js`, which is invoked from the file `pages/shop/[shopid]/index.js`. The components for service-shops are in `component/ServiceOrder`, and the entry point is `ShowcaseService.js`. 
+
+
+
+There are two database collections for the whole operation: `Models/dataSchema.js` and `Models/orderSchema.js`. 
+
+The route for setting payment settings is in `pages/shop/[shopid]/setting.js`. 
+
+The components for the dashboard are inside `components/Products` and `components/Orders`. The routes are in `pages/dashboard/[shopid]`. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

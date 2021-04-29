@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import First from './First'
 import InputHowMany from './InputHowMany'
 import Options from './Options'
+import ProductOptions from './ProductOptions'
 import OrderDate from './OrderDate'
 import ShowProduct from './ShowProduct'
 import InputName from './InputName'
@@ -35,8 +36,9 @@ class Showcase extends Component {
             recipientPhone: "",
             deliveryAddress: "",
             confirmationEmail: "",
+            currentProduct: 0,
 
-            totalSteps: 14,
+            totalSteps: 15,
             currentStep: 1
 
         }
@@ -49,16 +51,16 @@ class Showcase extends Component {
 
     handleNext = () => {
         let newStep = this.state.currentStep + 1
-        if (this.state.currentStep === 5 && this.state.wantMore) {
+        if (this.state.currentStep === 6 && this.state.wantMore) {
             newStep = 3
-        } else if (this.state.currentStep === 8 && !this.state.isGift) {
-            newStep = 11
+        } else if (this.state.currentStep === 9 && !this.state.isGift) {
+            newStep = 12
         }
 
         console.log(newStep);
 
         // should not proceed if no order is placed
-        if (this.state.currentStep === 3 && this.state.orders.length === 0) 
+        if (this.state.currentStep === 4 && this.state.orders.length === 0) 
             return
 
         this.setState({
@@ -69,8 +71,8 @@ class Showcase extends Component {
 
     handlePrev = () => {
         let newStep = this.state.currentStep - 1
-        if (this.state.currentStep === 11 && !this.state.isGift) {
-            newStep = 8
+        if (this.state.currentStep === 12 && !this.state.isGift) {
+            newStep = 9
         }
 
 
@@ -104,6 +106,13 @@ class Showcase extends Component {
             orderDate: d.getDate(),
             orderMonth: d.getMonth(),
             orderYear: d.getFullYear()
+        })
+    }
+
+    selectProduct = (product) => {
+        console.log(product.idx)
+        this.setState({
+            currentProduct: product.idx
         })
     }
 
@@ -206,7 +215,8 @@ class Showcase extends Component {
             <>
                 <ShowProduct data={this.state} goNext={this.handleNext} />
                 <OrderDate data={this.state} setDate={this.setDate} />
-                <Options data={this.state} addProduct={this.addProduct} />
+                <ProductOptions data={this.state} selectProduct={this.selectProduct} />
+                <Options data={this.state} product={this.state.products[this.state.currentProduct]} addProduct={this.addProduct} />
                 <InputHowMany data={this.state} updateProductQuantity={this.updateProductQuantity} />
                 <WantSomethingMore
                     data={this.state}

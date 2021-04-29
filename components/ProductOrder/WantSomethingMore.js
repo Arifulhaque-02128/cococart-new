@@ -20,7 +20,7 @@ const WantSomethingMore = (props) => {
 
 
     return (
-        props.data.currentStep === 5 ?
+        props.data.currentStep === 6 ?
             <div className={styles.screenWrapper}>
                 <div className={styles.screenContentWrapper}>
                     <div className={styles.orderSummary}>

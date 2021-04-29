@@ -210,10 +210,17 @@ class App extends Component {
     this.setState({
       shopID: shopID
     })
+    const products = [{
+      productName: this.state.productName, 
+      price: this.state.price, 
+      imageURL: this.state.imageURL,
+      hasOptions: this.state.hasOptions,
+      options: [optionA, optionB, optionC, optionD]}]
     
     const data = {
       shopID: this.state.shopName.replace(/ /g, '').toLowerCase(),
       shopName: this.state.shopName,
+      products: products,
       productName: this.state.productName,
       price: this.state.price,
       imageURL: this.state.imageURL,
@@ -226,7 +233,8 @@ class App extends Component {
       instructions: this.state.instructions,
       email: this.state.email,
       isProduct: true,
-      setting: ['rocket']
+      setting: [],
+      accountDetails: [{userName: "", email: this.state.email}],
     }
     fetch('http://localhost:3000/api', {
       method: 'POST', // or 'PUT'
@@ -267,7 +275,8 @@ class App extends Component {
       wantSocial: this.state.wantSocial,
       email: this.state.email,
       isProduct: false,
-      setting: ['rocket']
+      setting: [],
+      accountDetails: [{userName: "", email: this.state.email}]
     }
     // send data to db
 
