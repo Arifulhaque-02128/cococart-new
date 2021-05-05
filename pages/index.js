@@ -66,9 +66,12 @@ class App extends Component {
       serviceName: "",
       isOneTime: false,
       cardDescription: "",
-      haveVideo: false,
-      youtubeLink: "",
-      wantSocial: ""
+      wantSocial: "",
+      promoVideoLink: "",
+      fbLink: "",
+      instagramLink: "",
+      linkedInLink: "",
+      youTubeLink: ""
     }
 
 
@@ -100,8 +103,6 @@ class App extends Component {
     } else if (currentStep < this.state.totalSteps) {
       currentStep++
     }
-
-
 
 
     this.setState({
@@ -220,6 +221,7 @@ class App extends Component {
     const data = {
       shopID: this.state.shopName.replace(/ /g, '').toLowerCase(),
       shopName: this.state.shopName,
+      shop_type: 'product',
       products: products,
       productName: this.state.productName,
       price: this.state.price,
@@ -265,19 +267,23 @@ class App extends Component {
     const data = {
       shopID: this.state.name.replace(/ /g, '').toLowerCase(),
       name: this.state.name,
-      serviceName: this.state.serviceName,
+      shop_type: 'service',
+      shopName: this.state.serviceName,
       coverURL: this.state.imageURL,
       price: this.state.price,
       isOneTime: this.state.isOneTime,
       cardDescription: this.state.cardDescription,
-      haveVideo: this.state.haveVideo,
-      youtubeLink: this.state.youtubeLink,
-      wantSocial: this.state.wantSocial,
+      youTubeLink: this.state.youTubeLink,
+      fbLink: this.state.fbLink,
+      instagramLink: this.state.instagramLink,
+      linkedInLink: this.state.linkedInLink,
+      promoVideoLink: this.state.promoVideoLink,
       email: this.state.email,
       isProduct: false,
       setting: [],
       accountDetails: [{userName: "", email: this.state.email}]
     }
+    console.log(data)
     // send data to db
 
     fetch('http://localhost:3000/api', {
@@ -340,8 +346,12 @@ class App extends Component {
       isOneTime: false,
       cardDescription: "",
       haveVideo: false,
-      youtubeLink: "",
-      wantSocial: ""
+      wantSocial: "",
+      promoVideoLink: "",
+      fbLink: "",
+      instagramLink: "",
+      linkedInLink: "",
+      youTubeLink: "",
 
     })
     
@@ -495,10 +505,8 @@ class App extends Component {
               handleSubmit={this.handleSubmit}
             />
 
-
-
-
             <Step101 data={this.state} handleChange={this.handleChange} goNext={this._next} />
+
             <Step102 data={this.state} handleChange={this.handleChange} goNext={this._next} />
             <Step103
               data={this.state}
@@ -534,6 +542,15 @@ class App extends Component {
  */}
 
 
+        </div>
+
+        <div>
+        {
+          ( ((this.state.currentStep)%100 !== 0) && (!this.state.isProduct) ) && 
+          <div className={styles.imageContainer}>
+              <img src={`/service_preview/preview${(this.state.currentStep)%100}.png`} alt="preview"/>
+          </div>
+        }
         </div>
 
 

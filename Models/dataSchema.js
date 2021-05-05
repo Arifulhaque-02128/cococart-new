@@ -7,6 +7,15 @@ const shopSchema = new mongoose.Schema({
     shopName: {
         type: String
     },
+    coverURL: {
+        type: String,
+    },
+    shop_type: {
+        type: String
+    },
+    name: {
+        type: String
+    },
     products: {
         type: Array
     },
@@ -46,14 +55,17 @@ const shopSchema = new mongoose.Schema({
     isProduct: {
         type: Boolean
     },
-    name: {
+    isOneTime: {
+        type: Boolean
+    },
+    cardDescription: {
         type: String
     },
-    serviceName: {
-        type: String
+    setting: {
+        type: Array
     },
-    coverURL: {
-        type: String,
+    accountDetails : {
+        type: Array
     },
     isOneTime: {
         type: Boolean
@@ -61,20 +73,20 @@ const shopSchema = new mongoose.Schema({
     cardDescription: {
         type: String
     },
-    haveVideo: {
-        type: Boolean
-    },
-    youtubeLink: {
+    promoVideoLink: {
         type: String
     },
-    wantSocial: {
-        type: Boolean
+    fbLink: {
+        type: String
     },
-    setting: {
-        type: Array
+    instagramLink: {
+        type: String
     },
-    accountDetails : {
-        type: Array
+    linkedInLink: {
+        type: String
+    },
+    youTubeLink: {
+        type: String
     }
 });
 

@@ -3,6 +3,7 @@ import React from 'react';
 import SignUp from '../components/SignUpAndSignIn/SignUp';
 
 const signup = () => {
+    
     return (
         <div>
             {/* <SignIn /> */}

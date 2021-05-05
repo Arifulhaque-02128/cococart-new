@@ -16,10 +16,10 @@ class Step108 extends Component {
                 <br/>
                 <input
                     className={`{styles.formControl}`}
-                    name="youtubeLink"
+                    name="promoVideoLink"
                     type="text"
                     placeholder="https://www.youtube.com/watch?v..."
-                    value={this.props.data.youtubeLink}
+                    value={this.props.data.promoVideoLink}
                     onChange={this.props.handleChange} 
                 />
             </form>

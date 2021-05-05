@@ -12,9 +12,7 @@ class Products extends Component {
             showList: true,
             currentProduct: 0,
         }
-
     }
-
 
     handleChange = (event) => {
         const { name, value } = event.target

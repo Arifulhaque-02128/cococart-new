@@ -4,13 +4,13 @@ import Option from './Option'
 
 const Options = (props) => {
 
-    let AllOptionsComponent = props.product.options.reduce((AllOptionsComponent, option) => {
+    let AllOptionsComponent = props.product?.options?.reduce((AllOptionsComponent, option) => {
         if(option.name) AllOptionsComponent.push(<Option key={option.url} name={option.name} price={option.price} url={option.url} addProduct={props.addProduct}/>)
         return AllOptionsComponent
     }, [])
 
     // if there is no option, just show the main product
-    if(AllOptionsComponent.length == 0) {
+    if(AllOptionsComponent?.length == 0) {
         AllOptionsComponent = (
             <Option name={props.data.productName} price={props.data.price} url={props.data.imageURL} addProduct={props.addProduct}/>
         )

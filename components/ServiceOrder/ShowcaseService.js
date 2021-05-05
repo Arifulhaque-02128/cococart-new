@@ -151,27 +151,6 @@ class ShowcaseService extends Component {
         )
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default ShowcaseService

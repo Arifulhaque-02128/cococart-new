@@ -11,6 +11,7 @@ class Step101 extends Component {
 
 
         return (
+            
             <form className={`${styles.formGroup}`} onSubmit={this.props.goNext}>
                 <label>What is your name?</label>
                 <br/>
@@ -24,6 +25,7 @@ class Step101 extends Component {
                     onChange={this.props.handleChange} 
                 />
             </form>
+            
         )
 
     }

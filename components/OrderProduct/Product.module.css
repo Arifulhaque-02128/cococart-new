@@ -1,0 +1,83 @@
+.order{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+}
+.productContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.orderContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: aliceblue;
+    padding: 4rem 10rem;
+}
+.coverImg{
+    height: 170px;
+    width: 250px;
+    margin: 10px auto;
+}
+.welcomeText{
+    font-weight: lighter;
+    font-size: 32px;
+}
+.serviceOwner{
+    font-size: 32px;
+    font-weight: 400;
+}
+.orderButton{
+    display: flex;
+    justify-content: center;
+    max-width: 10rem;
+    align-items: center;
+    margin-top: 20px;
+    background-color: rgb(255, 0, 136);
+    border: none;
+    padding: 3px 10px;
+    border-radius: 2px;
+    color: white;
+    font-size: 18px;
+}
+
+
+
+.btn{
+    margin: 30px 5px;
+    text-align: center;
+}
+.btn>button{
+    padding: 0.5rem 1.4rem;
+    background-color: rgb(255, 0, 136);
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+.nextPrevBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.chooseBtn{
+    display: flex;
+    justify-content: space-between;
+    background-color: gainsboro;
+    padding: 0.5rem 1rem;
+    margin: 0.1rem 0rem;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+.btnChosen{
+    display: flex;
+    justify-content: space-between;
+    background-color: #afb4e6;
+    padding: 0.5rem 1rem;
+    margin: 0.1rem 0rem;
+    border-radius: 5px;
+    border: 1px solid gray;
+    cursor: pointer;
+}
