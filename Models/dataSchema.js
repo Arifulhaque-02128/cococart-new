@@ -7,6 +7,9 @@ const shopSchema = new mongoose.Schema({
     shopName: {
         type: String
     },
+    serviceName: {
+        type: String,
+    },
     coverURL: {
         type: String,
     },
@@ -17,6 +20,9 @@ const shopSchema = new mongoose.Schema({
         type: String
     },
     products: {
+        type: Array
+    },
+    services:{
         type: Array
     },
     productName: {

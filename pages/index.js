@@ -263,12 +263,18 @@ class App extends Component {
     event.preventDefault()
 
     const shopID = this.state.name.replace(/ /g, '').toLowerCase()
+    const services = [{
+      service_name: this.state.serviceName, 
+      price: this.state.price, 
+      imageURL: this.state.imageURL,
+    }]
 
     const data = {
       shopID: this.state.name.replace(/ /g, '').toLowerCase(),
       name: this.state.name,
+      services: services,
       shop_type: 'service',
-      shopName: this.state.serviceName,
+      serviceName: this.state.serviceName,
       coverURL: this.state.imageURL,
       price: this.state.price,
       isOneTime: this.state.isOneTime,
@@ -352,9 +358,7 @@ class App extends Component {
       instagramLink: "",
       linkedInLink: "",
       youTubeLink: "",
-
-    })
-    
+    })   
   }
 
 

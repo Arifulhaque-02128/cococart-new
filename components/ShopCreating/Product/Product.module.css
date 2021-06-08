@@ -1,0 +1,20 @@
+.btn{
+    margin: 30px 5px;
+    text-align: center;
+}
+.btn>button{
+    padding: 0.5rem 1.4rem;
+    background-color: rgb(255, 0, 136);
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+}
+.nextPrevBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+.imageContainer{
+    margin: 4rem 1rem;
+    height: 70vh;
+    width: 25vw;
+}

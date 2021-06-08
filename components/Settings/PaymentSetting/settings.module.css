@@ -1,13 +1,14 @@
 .settingPage{
     background-color: #eaeaea;
     padding: 1.5rem;
+    width: 97%;
 }
 
 .container{
     min-height: 100vh;
     padding: 0.5rem 0.5rem 2rem 0.5rem;
     display: grid;
-    grid-template-columns: 40vw 50vw;
+    grid-template-columns: 27% 72%;
     background-color: #eaeaea;
     border-bottom: 1px solid gray;
     margin-bottom: 20px;
@@ -18,7 +19,7 @@
         padding: 0.5rem 0.5rem 2rem 0.5rem;
         background-color: #eaeaea;
         display: grid;
-        grid-template-columns: 85vw;
+        grid-template-columns: 85%;
     }
     .settingStyle{
         padding: 1rem;
@@ -66,7 +67,7 @@
 
 .saveBtn{
     position: relative;
-    left: 90%;
+    left: 91%;
 }
 
 .saveBtn > button{

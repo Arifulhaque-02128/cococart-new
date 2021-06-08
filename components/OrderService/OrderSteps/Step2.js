@@ -13,7 +13,7 @@ const Step2 = ({info, stepCount}) => {
             <div className={styles.orderContainer}>
                 <div className={styles.clientInfo}>
                     <h1>What is Your Name?</h1> <br/>
-                    <TextField onChange={(e) => setOrderInfo({...orderInfo, clientInfo: e.target.value})} value={orderInfo.client_name} label="Name" placeholder="Phil John" />
+                    <TextField onChange={(e) => setOrderInfo({...orderInfo, client_name: e.target.value})} value={orderInfo.client_name} label="Name" placeholder="Phil John" />
                 </div> 
             </div>
             <div className={styles.nextPrevBtn}>

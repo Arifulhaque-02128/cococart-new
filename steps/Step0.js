@@ -6,14 +6,11 @@ class Step0 extends Component {
         e.preventDefault()
     }
 
-
-
     render() {
         if (this.props.data.currentStep !== 0) {
             return null
         }
-
-
+        
         return (
             <form className={`${styles.formGroup}`} onSubmit={this.handleSubmit}>
                 <label>Choose what do you want to sell?</label>

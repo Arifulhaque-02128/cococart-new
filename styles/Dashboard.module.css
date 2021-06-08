@@ -1,0 +1,17 @@
+.dashboard{
+    display: flex;
+    width: 96vw !important;
+}
+.sidebar{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0.5rem;
+    width: 20vw;
+    height: 100vw;
+    background-color: whitesmoke;
+    /* position: fixed; */
+}
+.mainContainer{
+    width: 75vw;
+    margin: 0;
+}

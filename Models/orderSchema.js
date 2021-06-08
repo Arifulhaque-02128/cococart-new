@@ -4,46 +4,50 @@ const orderSchema = new mongoose.Schema({
     shopID: {
         type: String
     },
-    orderDate: {
-        type: Number
+    product_name: {
+        type: String,
     },
-    orderMonth: {
-        type: Number
+    imageURL:{
+        type: String,
     },
-    orderYear: {
-        type: Number
+    product_amount: {
+        type: String,
     },
     totalCost: {
         type: Number,
     },
-    orders: {
-        type: Array,
-    },
-    name: {
+    client_name: {
         type: String
     },
-    phone: {
+    client_phone: {
         type: String
     },
     isGift: {
         type: Boolean
     },
-    recipientName: {
+    receive_via: {
         type: String
     },
-    recipientPhone: {
+    client_email: {
         type: String
     },
-    deliveryAddress: {
+    payment_method: {
         type: String
     },
-    confirmationEmail: {
+
+    delivery_address: {
         type: String
     },
-    whatsAppNumber: {
+    emailAddress: {
         type: String
     },
-    orderProcedure: {
+    fbAddress: {
+        type: String
+    },
+    instagramAddress: {
+        type: String
+    },
+    whatsApp: {
         type: String
     }
 });

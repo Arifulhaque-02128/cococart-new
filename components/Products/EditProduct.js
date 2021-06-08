@@ -10,6 +10,7 @@ const EditProduct = (props) => {
     let allOptions = props.product.options.filter(option => option.name)
 
     const [options, setOptions] = useState(allOptions)
+    
     const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/coco-cloud-new"
 
     console.log("inside editproduct----------", props.product.options)
@@ -58,7 +59,7 @@ const EditProduct = (props) => {
     const addOption = () => {
         setOptions(() => {
             const newOptions = [...options]
-            newOptions.push({name: "new variant", price: 0, url: "/upload.png"})
+            newOptions.push({name: "new variant", price: 0, url: "/upload.png", product: "true"})
             return newOptions
         })
         console.log(options)
@@ -125,7 +126,7 @@ const EditProduct = (props) => {
                     {
                         options.map((option, index) => {
                             return (
-                                option.name &&
+                                option.product &&
                                 <div className={styles.editor} key={index}>
                                     <h4>Variant {index + 1}</h4>
                                     <TextField
@@ -183,13 +184,19 @@ const EditProduct = (props) => {
 
 
                     <div className={styles.addMoreOption}>
-                        <Button className={styles.btnAdd} onClick={addOption}>add</Button>
+                        <Button className={styles.btnAdd} onClick={addOption}>Add</Button>
                     </div>
                 </div>
             </div>
-            <div className={styles.saveWrapper}>
-                <Button className={styles.btnSave} onClick={() => props.saveEdits(options)}>Save</Button>
-            </div>
+            {/* <div className={styles.saveWrapper}>
+                <Button className={styles.btnSave} onClick={() => props.saveEdits(options)}>Save Item</Button>
+            </div> */}
+            <button 
+                style={{padding: "5px 25px", backgroundColor: "yellow", border: "none",
+                borderRadius: "2px", fontWeight: "lighter",
+                fontSize: "17px",  margin: "2rem 5rem", cursor: "pointer"}}
+                onClick={() => props.saveEdits(options)}
+            > Save </button>
         </div>
     )
 }

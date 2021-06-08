@@ -1,7 +1,7 @@
 import React from 'react';
-import Account from '../../../components/Account/Account';
-import shopSchema from '../../../Models/dataSchema';
-import { dbConnect, jsonify } from '../../../utils/dbConnect';
+import Account from '../../../../components/Account/Account';
+import shopSchema from '../../../../Models/dataSchema';
+import { dbConnect, jsonify } from '../../../../utils/dbConnect';
 
 const account = ({apiData}) => {
     const {shopID, accountDetails} = apiData[0]

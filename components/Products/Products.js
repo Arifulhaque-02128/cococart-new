@@ -63,7 +63,7 @@ class Products extends Component {
             newState.showList = true
             return newState
         }, () => {
-            // console.log("inside saveedits -----", this.state.products)
+            console.log("inside saveedits -----", this.state.products)
             // const data = {
             //     shopID: this.state.shopID,
             //     shopName: this.state.shopName,
@@ -83,20 +83,21 @@ class Products extends Component {
             //     setting: this.state.setting,
             //     accountDetails: this.state.accountDetails
             // }
-            fetch('http://localhost:3000/api', {
-                method: 'PUT', // or 'PUT'
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(this.state.products),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+            // console.log(data)
+            // fetch('http://localhost:3000/api', {
+            //     method: 'PUT', // or 'PUT'
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify(this.state.products),
+            // })
+            //     .then(response => response.json())
+            //     .then(data => {
+            //         console.log('Success:', data);
+            //     })
+            //     .catch((error) => {
+            //         console.error('Error:', error);
+            //     });
         })
     }
 

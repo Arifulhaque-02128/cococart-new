@@ -1,0 +1,33 @@
+.btnService {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgb(209, 209, 209);
+
+    background: url('/service.png');
+    background-repeat: no-repeat;
+
+    background-size: 300px 200px;
+} 
+
+.btnProduct {
+    margin: 0 auto;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px rgb(209, 209, 209);
+
+    background: url('/product.png');
+    background-repeat: no-repeat;
+
+    background-size: 300px 200px;
+}
+
+.shopContainer{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    font-weight: 600;
+}

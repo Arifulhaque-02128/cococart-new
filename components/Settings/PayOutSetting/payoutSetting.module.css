@@ -2,7 +2,7 @@
     min-height: 50vh;
     padding: 0.5rem;
     display: grid;
-    grid-template-columns: 40vw 50vw;
+    grid-template-columns: 27% 72%;
     background-color: #eaeaea;
     margin-bottom: 20px;
 }
